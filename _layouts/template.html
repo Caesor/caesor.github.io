@@ -29,7 +29,7 @@
 	<footer>
 		<p>© Nemo 2014 with help of Jekyll</p>
 	</footer>
-	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="{{ site.baseurl }}/js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript">
 		$(function(){
 			$('header ul li').removeClass('selected');
@@ -39,10 +39,8 @@
 				}
 			})
 			// stretch the background wall to the whole screen
-			if( $(document).height() > $(window).height()){
-				$('.bg').height($(document).height());
-			}else{
-				$('.bg').height($(window).height());
+			if( $('body').height() < $(window).height()){
+				$('.bg').height($(window).height())
 			}
 		})
 	</script>

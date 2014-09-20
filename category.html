@@ -2,3 +2,22 @@
 layout: template
 title: Category
 ---
+<ul class="tag_list"">
+	{% for tag in site.tags %}      
+    <li>
+    <a href="tags.html#{{ tag | first | cgi_encode }}" class="{{ tag | first }}">{{ tag | first }}</a>
+    </li>
+    {% endfor %}    
+</ul>
+{% for tag in site.tags %}
+    <h1>{{ tag | first }}<a name="{{ tag | first | cgi_escape }}"></a></h1>
+    <ul class="postList">	
+        {% for posts in tag %}
+            {% for post in posts %}
+            {% if post.title %}
+            <li><a href="{{ post.url }}">{{ post.title }} <span>{{ post.date | date: '%y.%m.%d' }}</span></a></li>						
+            {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </ul>
+    {% endfor %}

@@ -28,7 +28,7 @@ blockquote:before,blockquote:after,q:before,q:after {content:'';content:none;}
 
 article,aside,audio,bdi,canvas,command,datalist,details,figcaption,figure,footer,header,hgroup,keygen,mark,meter,nav,output,progress,rp,rt,ruby,section,source,summary,time,track,vedio {display:block}
 
-html,body {height:100%;background:#fff;font-family:"Microsoft YaHei",simSun,"Lucida Grande","Lucida Sans Unicode";font-size:14px;color:#000;line-height:24px;}
+html,body {background:#fff;font-family:"Microsoft YaHei",simSun,"Lucida Grande","Lucida Sans Unicode";font-size:14px;color:#000;line-height:24px;}
 
 a {color:#000;text-decoration:none;
 transition:all .3s ease-in;}

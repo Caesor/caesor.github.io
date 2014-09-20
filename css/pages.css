@@ -1,7 +1,24 @@
-/* blog */
+/* common type */
+.life{background-color:#428bca; color:#fff;}
+.red{background-color:#d9534f; color:#fff;}
+.green{background-color:#5cb85c; color:#fff;}
+.orange{background-color:#f0ad4e; color:#fff;}
+.gray{background-color:#777; color:#fff;}
+
+/* blog list */
 .blog_list{font-size:16px;margin:10px 0;}
 .article_list ul{margin-left: 35px;}
 .article_list ul li{list-style-type:disc;}
+
+/* blog */
+.pub_time{display:inline-block;font-size:16px;color:#00438a;}
+.blog_tag{display:inline-block;padding:0 10px;}
+.blog_tag li{display:inline-block;padding: 0px 10px;border-radius: 10px;line-height: 20px; margin:0 5px;}
+.content_part article{text-indent:20px;text-indent: 25px;margin: 10px;}
+
+/* tag */
+.tag_list li a{font-size:18px;display:inline-block; padding: 5px 20px;border-radius: 10px; margin:0 5px; color:#fff;}
+
 /* resume */
 .resume_head{background-color: #f5f5f5;}
 .resume_content{background-color: #fff;}
