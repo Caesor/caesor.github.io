@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: 初探blog之路
-tag:
+tags:
 - life
 ---
 <p class="pub_time">{{ page.date | date_to_string }} <strong> {{page.tages}}</strong></p>
