@@ -1,0 +1,16 @@
+header{height: 40px; width: 100%; background-color: #181818;position: fixed;top: 0;font-size: 14px;}
+header ul{width:82%;overflow:hidden;margin:0 auto;}
+header ul li{float:left;}
+header ul li a{color:#ccc;display:block;height:40px;line-height: 40px;padding: 0 15px;}
+header ul li a:hover{color:#fff;text-decoration:none;}
+header ul li.selected{background-color:#000;}
+header ul li.selected a{color:#fff;}
+
+.bg{background-color: #eee;}
+.wall{width: 82%;margin: 0 auto;padding-top:40px;border: 1px solid #eee;color:#666666;box-shadow: 0 1px 2px rgba(0,0,0,.15)}
+.nav_font{font-size: 28px;line-height: 30px;background-color: #F5F5F5;border-bottom: 1px solid #D6D6D6;padding: 20px;}
+.content_part{font-size:14px; padding: 20px;background-color: #fff;}
+.content_part a{color:#0069d6;}
+.content_part a:hover{color: #00438a;text-decoration: underline;}
+
+footer{text-align:center;color:#404040;margin:20px 0;}

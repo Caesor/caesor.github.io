@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ page.title }}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/css/common.css">
+	<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/css/layout.css">
+	<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/css/pages.css">
+</head>
+<body class="bg">
+	<header>
+		<ul>
+			<li><a href="{{ site.baseurl }}/">Blog</a></li>
+			<li><a href="{{ site.baseurl }}/category.html">Category</a></li>
+			<li><a href="{{ site.baseurl }}/about.html">About</a></li>
+		</ul>
+	</header>
+	<section class="wall">
+		<section class="nav_font">
+			<h1>{{ page.title }}</h1>
+		</section>
+		<section class="content_part">
+			{{ content }}
+		</section>
+	</section>
+	<footer>
+		<p>© Nemo 2014 with help of Jekyll</p>
+	</footer>
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('header ul li').removeClass('selected');
+			$('header ul li a').each(function(){
+				if($(this).text() == $('.nav_font h1').text()){
+					$(this).parent().addClass('selected');
+				}
+			})
+			// stretch the background wall to the whole screen
+			if( $(document).height() > $(window).height()){
+				$('.bg').height($(document).height())
+			}else{
+				$('.bg').height($(window).height())
+			}
+		})
+	</script>
+</body>
+</html>
