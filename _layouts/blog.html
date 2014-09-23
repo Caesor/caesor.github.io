@@ -1,71 +1,39 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>{{ page.title }}</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="keywords" content="" />
-	<meta name="description" content="" />
-	<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/css/common.css">
-	<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/css/layout.css">
-	<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/css/pages.css">
-</head>
-<body class="bg">
-	<header>
-		<ul>
-			<li><a href="{{ site.baseurl }}/">Blog</a></li>
-			<li><a href="{{ site.baseurl }}/category.html">Category</a></li>
-			<li><a href="{{ site.baseurl }}/about.html">About</a></li>
-		</ul>
-	</header>
-	<section class="wall">
-		<section class="nav_font">
-			<h1>{{ page.title }}</h1>
-		</section>
-		<section class="content_part">
-			<p class="pub_time">>> {{ page.date | date_to_string }}</p>
-			<ul class="blog_tag">
-				{% for tag in page.tags %}
-				<li class="{{ tag }}">{{ tag }}</li>
-				{% endfor %}
-			</ul>
-			{{ content }}
-			<p class="cross_line"></p>
-			<!-- Disqus start -->
-			<div id="disqus_thread"></div>
-			<script type="text/javascript">
-				/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-				var disqus_shortname = 'caesor'; // required: replace example with your forum shortname
-
-				/* * * DON'T EDIT BELOW THIS LINE * * */
-				(function() {
-				    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-				    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-				    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-				})();
-			</script>
-			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-			<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-			<!-- Disqus end -->
-		</section>
-	</section>
-	<footer>
-		<p>© Nemo 2014 with help of Jekyll</p>
-	</footer>
-	<script type="text/javascript" src="{{ site.baseurl }}/js/jquery-1.8.3.min.js"></script>
+---
+layout: template
+---
+<section class="content_part_left">
+	<p class="pub_time">>> {{ page.date | date_to_string }}</p>
+	<ul class="blog_tag">
+		{% for tag in page.tags %}
+		<li class="{{ tag }}">{{ tag }}</li>
+		{% endfor %}
+	</ul>
+	{{ content }}
+	<p class="cross_line"></p>
+	<!-- Disqus start -->
+	<div id="disqus_thread"></div>
 	<script type="text/javascript">
-		$(function(){
-			$('header ul li').removeClass('selected');
-			$('header ul li a').each(function(){
-				if($(this).text() == $('.nav_font h1').text()){
-					$(this).parent().addClass('selected');
-				}
-			})
-			// stretch the background wall to the whole screen
-			if( $('body').height() < $(window).height()){
-				$('.bg').height($(window).height())
-			}
-		})
+		/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+		var disqus_shortname = 'caesor'; // required: replace example with your forum shortname
+
+		/* * * DON'T EDIT BELOW THIS LINE * * */
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
 	</script>
-</body>
-</html>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	<!-- Disqus end -->
+</section>
+<aside class="content_part_right">
+	<h3>Tags List</h3>
+	<ul>
+		{% for tag in site.tags %}      
+		<li>
+		<a href="tags.html#{{ tag | first | cgi_encode }}">{{ tag | first }} ({{tag.size}})</a>
+		</li>
+		{% endfor %}
+	</ul>
+</aside>

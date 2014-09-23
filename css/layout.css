@@ -1,3 +1,5 @@
+.bg{background-color: #fff;position:relative;}
+
 header{height: 40px; width: 100%; background-color: #181818;position: fixed;top: 0;font-size: 14px;}
 header ul{width:82%;overflow:hidden;margin:0 auto;}
 header ul li{float:left;}
@@ -6,12 +8,21 @@ header ul li a:hover{color:#fff;text-decoration:none;}
 header ul li.selected{background-color:#000;}
 header ul li.selected a{color:#fff;}
 
-.bg{background-color: #eee;}
-.wall{width: 82%;margin: 0 auto;padding-top:40px;border: 1px solid #eee;color:#666666;box-shadow: 0 1px 2px rgba(0,0,0,.15)}
-.nav_font{font-size: 28px;line-height: 30px;background-color: #F5F5F5;border-bottom: 1px solid #D6D6D6;padding: 20px;}
-.content_part{font-size:14px; padding: 20px;background-color: #fff;}
+.wall{width: 82%;margin: 0 auto;padding:40px 0;color:#666666;}
+.nav_font{font-size: 28px;line-height: 30px;background-color: #fff;border-bottom: 1px solid #D6D6D6;}
+.content_part{font-size:14px;background-color: #fff;overflow:hidden;}
+.content_part_left{max-width:680px;float:left;}
+.content_part_right{float:right;width:120px;text-align:center;}
+.content_part_right h3{}
+.syn_padding {padding: 20px;}
 .cross_line{height: 30px;}
 .content_part a{color:#0069d6;}
 .content_part a:hover{color: #00438a;text-decoration: underline;}
 
-footer{text-align:center;color:#404040;padding:20px 0;}
+footer{position:absolute;bottom:0;width: 100%;text-align:center;color:#404040;line-height:40px;}
+
+@media screen and (max-width: 600px){
+	header ul{width:95%;overflow:hidden;margin:0 auto;}
+	.wall{width: 95%;margin: 0 auto;padding:40px 0;color:#666666;}
+	.syn_padding {padding: 20px 10px;}
+}
