@@ -10,7 +10,7 @@ header ul li a:hover{color:#fff;text-decoration:none;}
 header ul li.selected{background-color:#000;}
 header ul li.selected a{color:#fff;}
 
-.wall{margin: 0 auto;padding:40px 0;color:#666666;}
+.wall{margin: 0 auto;padding:40px 0;color:#303030;}
 .nav_font{font-size: 28px;line-height: 30px;background-color: #fff;border-bottom: 1px solid #D6D6D6;}
 .blog_layout{display:-moz-box;display:-webkit-box;display:box;}
 .content_part{font-size:14px;background-color: #fff;overflow:hidden;}

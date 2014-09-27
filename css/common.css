@@ -9,7 +9,7 @@ address,caption,cite,code,dfn,em,th,var,optgroup {font-style:normal;font-weight:
 h1,h2,h3,h4,h5,h6 {font-size:100%;}
 abbr,acronym {border:0;font-variant:normal;}
 input,button,textarea,select,optgroup,option {font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}
-code,kbd,samp,tt {font-size:100%;}
+code,kbd,samp,tt {font-size:90%;}
 /*@purpose To enable resizing for IE */
 /*@branch For IE6-Win,IE7-Win */
 input,button,textarea,select {*font-size:100%;}

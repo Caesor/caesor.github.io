@@ -9,6 +9,7 @@
 	<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/css/common.css">
 	<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/css/layout.css">
 	<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/css/pages.css">
+	<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/resource/google-code-prettify/prettify.css" />
 </head>
 <body class="bg">
 	<header>
@@ -30,8 +31,12 @@
 		<p>© Nemo 2014 with help of Jekyll</p>
 	</footer>
 	<script type="text/javascript" src="{{ site.baseurl }}/js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="{{ site.baseurl }}/resource/google-code-prettify/prettify.js"></script>
 	<script type="text/javascript">
 		$(function(){
+			$('code').addClass('prettyprint linenums').attr('style', 'overflow:auto');
+	        prettyPrint();
+			
 			$('header ul li').removeClass('selected');
 			$('header ul li a').each(function(){
 				if($(this).text() == $('.nav_font h1').text()){
