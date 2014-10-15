@@ -4,13 +4,31 @@ layout: template
 <section class="blog_layout"">
 	<section class="content_part_left">
 		<p class="pub_time">>> {{ page.date | date_to_string }}</p>
-		<ul class="blog_tag">
-			{% for tag in page.tags %}
-			<li class="{{ tag }}">{{ tag }}</li>
-			{% endfor %}
-		</ul>
+		<section class="blog_info">
+			<ul class="blog_category">
+				<span class="glyphicon glyphicon-folder-open"></span>
+				{% for category in page.categories %}
+				<li>{{ category }}</li>
+				{% endfor %}
+			</ul>
+			<ul class="blog_tag">
+				<span class="glyphicon glyphicon-tags"></span>
+				{% for tag in page.tags %}
+				<li class="{{ tag }}">{{ tag }}</li>
+				{% endfor %}
+			</ul>
+		</section>
 		<section class="blog_content">
 			{{ content }}
+			<ul class="pagination">
+				{% if page.previous %}
+				  <li class="prev"><a href="{{ baseurl }}{{ page.previous.url }}" title="{{ page.previous.title }}">&laquo; Previous</a></li>
+				{% endif %}
+				  <li><a href="{{ site.baseurl }}/">Archive</a></li>
+				{% if page.next %}
+				  <li class="next"><a href="{{ baseurl }}{{ page.next.url }}" title="{{ page.next.title }}">Next &raquo;</a></li>
+				{% endif %}
+			</ul>
 		</section>
 		<p class="cross_line"></p>
 		<!-- Disqus start -->
@@ -35,7 +53,7 @@ layout: template
 		<ul>
 			{% for tag in site.tags %}      
 			<li>
-			<a href="tags.html#{{ tag | first | cgi_encode }}">{{ tag | first }} ({{tag.size}})</a>
+			<a href="tags.html#{{ tag | first | cgi_encode }}">{{ tag | first }} <span class="tags_num">{{tag[1].size}}</span></a>
 			</li>
 			{% endfor %}
 		</ul>

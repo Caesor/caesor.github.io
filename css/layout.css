@@ -22,7 +22,7 @@ header ul li.selected a{color:#fff;}
 .cross_line{height: 30px;}
 .content_part a{color:#0069d6;}
 .content_part a:hover{color: #00438a;text-decoration: underline;}
-
+.post_list a{transition:all .3s ease-in;}
 footer{position:absolute;bottom:0;width: 100%;text-align:center;color:#858585;line-height:40px;}
 
 @media screen and (max-width: 800px){

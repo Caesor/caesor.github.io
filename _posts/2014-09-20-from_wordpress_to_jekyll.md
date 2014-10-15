@@ -1,7 +1,8 @@
 ---
 layout: blog
 title: 初探blog之路
-tags: life
+categories: Life
+tags: essay
 ---
 一直想搭一个blog，以便可以抒发一些生活所感，记录一些生活点滴，分享一些技术心得。今天终于开始动工，欣喜之情无以言表...
 

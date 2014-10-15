@@ -13,21 +13,27 @@
 .article_list ul li{list-style-type:disc;}
 
 /* blog */
-.pub_time{display:inline-block;font-size:16px;color:#00438a;}
-.blog_tag{display:inline-block;padding:0 10px;}
-.blog_tag li{display:inline-block;padding: 0px 10px;border-radius: 10px;line-height: 20px; margin:0 5px;}
-.blog_content p{text-indent:25px;margin: 10px 0;}
+.pub_time{font-size:16px;color:#00438a;}
+.blog_info{padding-top: 10px;}
+.blog_info .glyphicon{font-size: 12px;}
+.blog_info ul{display:inline-block;}
+.blog_info ul li{display:inline-block;padding-left:10px;}
+.blog_tag {margin-left:20px;}
+.blog_content p{margin: 10px 0;}
 .blog_content img{max-width:100%;}
 
 /* code in blog */
 .prettyprint{white-space:pre;white-space:pre-wrap;word-break:break-all;word-wrap:break-word;}
-.prettyprint ol{border:1px solid #E6E6E6; border-radius: 5px;}
-.prettyprint ol li{list-style-type:decimal; list-style-position:inside;}
+.prettyprint ol{text-indent: 10px;border:1px solid #E6E6E6; border-radius: 5px;}
+/*.prettyprint ol li{list-style-type:decimal; list-style-position:inside;}*/
+
+/* category */
+
 
 /* tag */
 .tag_list{overflow:hidden;}
 .tag_list li{float: left;margin-right: 20px;border: 1px solid #eee;border-radius: 5px;background: #eee;}
-.tag_list li span{vertical-align: super;font-size:0.7em;}
+.tags_num{vertical-align: super;font-size:0.7em;}
 .tag_list li a{display: block;color:#1B1B1B;font-size:18px;padding: 0 20px;}
 .tag_list li a:hover{text-decoration:none;box-shadow: 0px 0px 15px #B6C5D6 inset;border-radius: 5px;}
 .post_title{font-size: 20px;margin: 20px 0 10px;}
