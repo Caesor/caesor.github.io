@@ -4,7 +4,7 @@
 /* blog list */
 .blog_list{font-size:16px;margin:10px 0;}
 .article_list ul{margin-left: 35px;}
-.article_list ul li{list-style-type:disc;}
+.article_list ul li{list-style-type:disc;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
 
 /* blog */
 .blog_info{padding: 10px 0;color:#00438a;}
@@ -22,8 +22,8 @@
 
 /* category & tag page */
 .post_title{font-size: 20px;margin: 20px 0 10px;}
-.post_list li{list-style-type: disc;margin-left: 15px;}
-.post_list span{float:right;}
+.post_list li{list-style-type: disc;margin-left: 15px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;margin-right: 80px;}
+.post_list span{position: absolute;right: 20px;}
 
 /* tag */
 .tag_list{overflow:hidden;}
@@ -46,4 +46,12 @@
 @media screen and (max-width: 800px){
 	.article_list ul{margin-left: 15px;}
 	.resume_part ul{margin-left: 15px;}
+	.post_title{margin: 10px 0 10px;}
+	.tag_list li{margin: 0 10px 10px 0;}
+	.tag_list li a{font-size:14px;padding: 0 8px;}
+	.blog_content h2{font-size:16px;padding: 0 15px;line-height:25px;}
+	
+	.blog_info ul{margin-right: 10px;}
+	.blog_info ul li{padding-left: 5px;}
+	
 }

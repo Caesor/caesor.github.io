@@ -28,6 +28,7 @@ footer{position:absolute;bottom:0;width: 100%;text-align:center;color:#858585;li
 
 @media screen and (max-width: 800px){
 	header ul, .wall{width:95%;}
+	.nav_font{font-size:20px;}
 	.nav_font, .content_part{padding: 20px 10px;}
 	.content_part_right{display:none;}
 }
