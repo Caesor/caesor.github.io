@@ -1,0 +1,5 @@
+*.[oa]
+*~
+_site
+*.swp
+.DS_Store
