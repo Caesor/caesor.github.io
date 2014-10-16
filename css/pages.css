@@ -22,7 +22,7 @@
 
 /* category & tag page */
 .post_title{font-size: 20px;margin: 20px 0 10px;}
-.post_list ul{position:relative;}
+.post_list{position:relative;}
 .post_list li{list-style-type: disc;margin-left: 15px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;margin-right: 80px;}
 .post_list span{position: absolute;right: 0;}
 
