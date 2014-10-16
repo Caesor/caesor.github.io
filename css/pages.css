@@ -27,7 +27,7 @@
 
 /* tag */
 .tag_list{overflow:hidden;}
-.tag_list li{float: left;margin-right: 20px;border: 1px solid #eee;border-radius: 5px;background: #eee;border: 1px solid #E9E9E9;}
+.tag_list li{float: left;margin: 0 20px 10px 0;border: 1px solid #eee;border-radius: 5px;background: #eee;border: 1px solid #E9E9E9;}
 .tags_num{vertical-align: super;font-size:0.7em;}
 .tag_list li a{display: block;color:#1B1B1B;font-size:18px;padding: 0 20px;}
 .tag_list li a:hover{text-decoration:none;box-shadow: 0px 0px 15px #B6C5D6 inset;border-radius: 5px;}
