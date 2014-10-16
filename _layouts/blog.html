@@ -2,9 +2,9 @@
 layout: template
 ---
 <section class="blog_layout"">
-	<section class="content_part_left">
-		<p class="pub_time">>> {{ page.date | date_to_string }}</p>
+	<section class="content_part_left">	
 		<section class="blog_info">
+			<ul class="pub_time"><span class="glyphicon glyphicon-time"></span><li>{{ page.date | date: '%y-%m-%d' }}</li></ul>
 			<ul class="blog_category">
 				<span class="glyphicon glyphicon-folder-open"></span>
 				{% for category in page.categories %}

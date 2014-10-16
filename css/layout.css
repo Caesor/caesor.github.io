@@ -1,6 +1,7 @@
 .bg{background-color: #fff;position:relative;}
 header ul, .wall{max-width:960px;width:82%;}
 .nav_font, .content_part{padding: 20px;}
+.content_part{padding-top:10px;}
 
 header{height: 40px; width: 100%; background-color: #181818;position: fixed;top: 0;font-size: 14px;}
 header ul{overflow:hidden;margin:0 auto;}
@@ -15,7 +16,7 @@ header ul li.selected a{color:#fff;}
 .blog_layout{display:-moz-box;display:-webkit-box;display:box;}
 .content_part{font-size:14px;background-color: #fff;overflow:hidden;}
 .content_part_left{box-flex:1;-moz-box-flex:1; -webkit-box-flex:1;}
-.content_part_right{width:140px;padding-left:20px;}
+.content_part_right{padding:10px 0 0 20px;}
 .content_part_right h3{text-align:center;}
 .content_part_right ul{margin:10px 0;}
 .content_part_right ul li{list-style:disc;margin: 0 20px;}
