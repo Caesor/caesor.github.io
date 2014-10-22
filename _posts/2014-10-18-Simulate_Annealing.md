@@ -30,8 +30,8 @@ Metropolis Algorithm表现了物理系统是如何找到一个低能状态的。
 **∆E = f (x') − f (x)** ： ∆E表示新状态（x'）和候选结果（x）的差值
 
 ![picture1]({{site.baseurl}}/resource/2014-10-18-03.png "example_pic")
-**P（∆E）**表示新的候选值 x' 能够被采纳的概率。
-**T**温度随着迭代的次数而减少
+
+**P（∆E）**表示新的候选值 x' 能够被采纳的概率。  **T** 温度随着时间的增加而减少
 `public class SA<G, X> extends OptimizationAlgorithm<G, X> {
   /** the temperature schedule to use */
   public ITemperatureSchedule temperature;
@@ -68,9 +68,9 @@ Metropolis Algorithm表现了物理系统是如何找到一个低能状态的。
 			  best.assign(pcur);
 		  }
 	  }
-	  //在这里偶尔接受比较糟糕的状态
+	  //关键点！在这里偶尔接受比较糟糕的状态
 	  else{
-	  	  //随着时间t的增加，调用getTemperatrue函数取得正在降低的温度T
+	  	  //随着时间t的增加，调用getTemperatrue函数取得随时间 t 增加正在降低的温度 T
 		  T = temperature.getTemperature(t);
 		  if(Math.random() < Math.exp(-(_e / T))){
 		  	  //随机数小于 P（∆E） ，接受新状态作为当前状态
@@ -86,7 +86,7 @@ Metropolis Algorithm表现了物理系统是如何找到一个低能状态的。
 
 ##温度调控
 
-温度调控可以让模拟退火算法（Simulate Annealing Algorithm）的表现行为从“随机行走算法（Random Walking Algorithm）”的**高温状态**转向“登山算法（Hill Climbing Algorithm）”的**低温状态**。
+温度调控可以让模拟退火算法（Simulate Annealing Algorithm）的表现行为从“随机行走算法（Random Walking Algorithm）”的**高温状态**（T越大P（∆E）越大，糟糕的状态被接受的可能性就越大）转向“登山算法（Hill Climbing Algorithm）”的**低温状态**（T越小，糟糕的状态被接受的可能性就越小）。
 ![picture1]({{site.baseurl}}/resource/2014-10-18-04.png "example_pic")
 
 **对数调度（Logarithmic）** : 参数Ts的取值要比“本地最小目标差值”和“最佳临近候选结果”的值要大。
