@@ -3,15 +3,29 @@ header ul, .wall{max-width:960px;width:82%;}
 .nav_font, .content_part{padding: 20px;}
 .content_part{padding-top:10px;}
 
-header{height: 40px; width: 100%; background-color: #181818;position: fixed;top: 0;font-size: 14px;}
+header{width: 100%; background-color: #464646;font-size: 14px;background:url('/resource/image/sky.jpg'); background-size:cover;}
+header nav.big_nav{width:100%;background-color: #181818;position:fixed;top:0;}
 header ul{overflow:hidden;margin:0 auto;}
-header ul li{float:left;}
+header ul li{float:left;background:#181818;}
 header ul li a{color:#ccc;display:block;height:40px;line-height: 40px;padding: 0 15px;}
 header ul li a:hover{color:#fff;text-decoration:none;}
 header ul li.selected{background-color:#000;}
 header ul li.selected a{color:#fff;}
+/* blackboard */
+header .hello_board{width:100%;text-align:center;padding: 80px 0;}
+header .head_pic_border{width:120px; height:120px; border-radius: 60px;overflow: hidden;margin:0 auto;border: 3px solid #D5D5D5;transition: .3s ease;}
+header .head_pic_border img{width:100%;}
+header .head_pic_border:hover{
+	-webkit-transform: rotate(360deg) scale(1.1);
+	-ms-transform: rotate(360deg) scale(1.1);
+	transform: rotate(360deg) scale(1.1);
+}
+header .my_info{font-family: cursive;font-size:40px; color:#fff;margin:10px 0;}
+/* menu button */
+#menu-trigger{position:absolute;top:20px;right:20px;font-size:40px;color:#fff;cursor:pointer;display:none;}
 
-.wall{margin: 0 auto;padding:40px 0;color:#303030;}
+
+.wall{margin: 0 auto;padding-bottom:40px;color:#303030;}
 .nav_font{font-size: 28px;line-height: 30px;background-color: #fff;border-bottom: 1px solid #D6D6D6;}
 .blog_layout{display:-moz-box;display:-webkit-box;display:box;}
 .content_part{font-size:14px;background-color: #fff;overflow:hidden;}
@@ -26,8 +40,14 @@ header ul li.selected a{color:#fff;}
 .post_list a{transition:all .3s ease-in;}
 footer{position:absolute;bottom:0;width: 100%;text-align:center;color:#858585;line-height:40px;}
 
-@media screen and (max-width: 800px){
-	header ul, .wall{width:95%;}
+@media screen and (max-width: 600px){
+	header .hello_board{padding:20px 0;}
+	header nav.big_nav{position:static;opacity:0.6;}
+	header ul{display:none;width:100%;}
+	header ul li{float:none; display:block;}
+	#menu-trigger{display:block;}
+	header .my_info{font-size:30px;}
+	.wall{width:95%;}
 	.nav_font{font-size:20px;}
 	.nav_font, .content_part{padding: 20px 10px;}
 	.content_part_right{display:none;}

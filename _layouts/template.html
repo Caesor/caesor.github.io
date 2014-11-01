@@ -6,20 +6,31 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
-	<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/resource/bootstrap-3.2.0-dist/css/bootstrap.min.css" />
 	<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/css/common.css">
+	<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/resource/bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/resource/font-awesome-4.2.0/css/font-awesome.min.css">
 	<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/css/layout.css">
 	<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/css/pages.css">
 	<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/resource/google-code-prettify/prettify.css" />
+	
 </head>
 <body class="bg">
 	<header>
-		<ul>
-			<li><a href="{{ site.baseurl }}/">Archive</a></li>
-			<li><a href="{{ site.baseurl }}/category.html">Category</a></li>
-			<li><a href="{{ site.baseurl }}/tag.html">Tag</a></li>
-			<li><a href="{{ site.baseurl }}/about.html">About</a></li>
-		</ul>
+		<section class="hello_board">
+			<section class="head_pic_border"><img src="{{ site.baseurl }}/resource/image/head.jpg"></section>
+			<article class="my_info">Nemo</article>
+			<nav class="big_nav">
+				<ul>
+					<li><a href="{{ site.baseurl }}/">Archive</a></li>
+					<li><a href="{{ site.baseurl }}/category.html">Category</a></li>
+					<li><a href="{{ site.baseurl }}/tag.html">Tag</a></li>
+					<li><a href="{{ site.baseurl }}/about.html">About</a></li>
+				</ul>
+			</nav>
+		</section>
+		<nav class="small_nav">
+			<i id="menu-trigger" class="fa fa-bars"></i>
+		</nav>
 	</header>
 	<section class="wall">
 		<section class="nav_font">
@@ -50,6 +61,10 @@
 			if( $('body').height() < $(window).height()){
 				$('.bg').height($(window).height())
 			}
+			
+			$('#menu-trigger').click(function(){
+				$('.big_nav ul').slideToggle();
+			})
 		})
 	</script>
 </body>
