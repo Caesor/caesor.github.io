@@ -41,6 +41,11 @@
 			{{ content }}
 		</section>
 	</section>
+	<!-- scroll top botton -->
+	<div id="scroll_top_btn" class="btn_feild displayNone">
+		<i class="btn_bg"></i>
+		<i class="fa fa-angle-double-up"></i>
+	</div>
 	<footer>
 		<p>© Nemo 2014 with help of Jekyll</p>
 	</footer>
@@ -49,6 +54,17 @@
 	<script type="text/javascript" src="{{ site.baseurl }}/resource/bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		$(function(){
+
+			$(document).scroll(function(){
+				if($(document).scrollTop() > 0){
+					$('#scroll_top_btn').removeClass('displayNone');				
+					$('#scroll_top_btn').animate({opacity:1},'slow');
+				}else{
+					$('#scroll_top_btn').animate({opacity:0},'slow');
+					$('#scroll_top_btn').addClass('displayNone');
+				}
+			});
+			
 			$('code').addClass('prettyprint linenums').attr('style', 'overflow:auto');
 	        prettyPrint();
 			
@@ -65,6 +81,10 @@
 			
 			$('#menu-trigger').click(function(){
 				$('.hello_board').slideToggle();
+			});
+			
+			$('#scroll_top_btn').click(function(){
+				$('html,body').animate({scrollTop:0},'slow');
 			})
 		})
 	</script>

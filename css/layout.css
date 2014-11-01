@@ -24,7 +24,7 @@ header .my_info{font-family: cursive;font-size:40px; color:#fff;margin:10px 0;}
 /* menu button */
 .small_nav{width:100%;position:absolute; top:0;background:#181818;text-align:right;display:none;}
 .small_nav h3{float: left;color: #ECECEC;font-size: 25px;line-height: 45px;margin-left: 20px;}
-#menu-trigger{font-size: 35px;color: #eee;cursor: pointer;padding: 0 4px;border: 1px solid #999;border-radius: 5px;margin: 4px;}
+#menu-trigger{font-size: 32px;color: #eee;cursor: pointer;padding: 0 4px;border: 1px solid #999;border-radius: 5px;margin: 5px;}
 
 
 .wall{margin: 0 auto;padding:0 0 40px 0;color:#303030;}
@@ -40,6 +40,11 @@ header .my_info{font-family: cursive;font-size:40px; color:#fff;margin:10px 0;}
 .content_part a{color:#0069d6;}
 .content_part a:hover{color: #00438a;text-decoration: underline;}
 .post_list a{transition:all .3s ease-in;}
+
+#scroll_top_btn{font-size:32px;z-index:100;color:#fff;line-height:40px;opacity:0;}
+.btn_feild{position:fixed; bottom:60px;right:40px;text-align:center;width:40px;height:40px;}
+.btn_bg{background:#000;opacity:0.8;width:40px;height:40px;position:absolute; top:0;left:0;z-index:-10;border-radius:5px;}
+
 footer{position:absolute;bottom:0;width: 100%;text-align:center;color:#858585;line-height:40px;}
 
 @media screen and (max-width: 600px){
