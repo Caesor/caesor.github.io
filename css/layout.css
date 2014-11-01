@@ -41,9 +41,8 @@ header .my_info{font-family: cursive;font-size:40px; color:#fff;margin:10px 0;}
 .content_part a:hover{color: #00438a;text-decoration: underline;}
 .post_list a{transition:all .3s ease-in;}
 
-#scroll_top_btn{font-size:32px;z-index:100;color:#fff;line-height:40px;opacity:0;}
-.btn_feild{position:fixed; bottom:60px;right:40px;text-align:center;width:40px;height:40px;}
-.btn_bg{background:#000;opacity:0.8;width:40px;height:40px;position:absolute; top:0;left:0;z-index:-10;border-radius:5px;}
+#scroll_top_btn{font-size:32px;position:fixed; bottom:60px;right:40px;width:40px;height:40px;z-index:100;color:#fff;line-height:40px;opacity:0;text-align:center;}
+.btn_bg{background:#000;opacity:0.6;width:40px;height:40px;position:absolute; top:0;left:0;z-index:-10;border-radius:5px;}
 
 footer{position:absolute;bottom:0;width: 100%;text-align:center;color:#858585;line-height:40px;}
 
