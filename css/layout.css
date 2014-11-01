@@ -23,6 +23,7 @@ header .head_pic_border:hover{
 header .my_info{font-family: cursive;font-size:40px; color:#fff;margin:10px 0;}
 /* menu button */
 .small_nav{width:100%;position:absolute; top:0;background:#181818;text-align:right;display:none;}
+.small_nav h3{float: left;color: #ECECEC;font-size: 25px;line-height: 45px;margin-left: 20px;}
 #menu-trigger{font-size: 35px;color: #eee;cursor: pointer;padding: 0 4px;border: 1px solid #999;border-radius: 5px;margin: 4px;}
 
 
@@ -46,7 +47,8 @@ footer{position:absolute;bottom:0;width: 100%;text-align:center;color:#858585;li
 	header .head_pic_border{width:80px; height:80px; border-radius: 40px;}
 	header nav.big_nav{position:static;opacity:0.6;}
 	header ul{width:100%;}
-	header ul li{float:none; display:block;}
+	header ul li{float:none; display:block;border-top:1px solid #0e0e0e;}
+	header ul li:first-child{border-top:none;}
 	.small_nav{display:block;}
 	header .my_info{font-size:30px;}
 	.wall{width:95%;padding:40px 0;}
