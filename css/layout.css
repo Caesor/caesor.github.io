@@ -12,7 +12,7 @@ header ul li a:hover{color:#fff;text-decoration:none;}
 header ul li.selected{background-color:#000;}
 header ul li.selected a{color:#fff;}
 /* blackboard */
-header .hello_board{width:100%;text-align:center;padding: 80px 0;}
+header .hello_board{width:100%;text-align:center;padding: 80px 0 20px 0;}
 header .head_pic_border{width:120px; height:120px; border-radius: 60px;overflow: hidden;margin:0 auto;border: 3px solid #D5D5D5;transition: .3s ease;}
 header .head_pic_border img{width:100%;}
 header .head_pic_border:hover{
@@ -22,10 +22,11 @@ header .head_pic_border:hover{
 }
 header .my_info{font-family: cursive;font-size:40px; color:#fff;margin:10px 0;}
 /* menu button */
-#menu-trigger{position:absolute;top:20px;right:20px;font-size:40px;color:#fff;cursor:pointer;display:none;}
+.small_nav{width:100%;position:fixed; top:0;background:#181818;text-align:right;}
+#menu-trigger{margin-right:10px;font-size:40px;color:#fff;cursor:pointer;display:none;}
 
 
-.wall{margin: 0 auto;padding-bottom:40px;color:#303030;}
+.wall{margin: 0 auto;padding:0 0 40px 0;color:#303030;}
 .nav_font{font-size: 28px;line-height: 30px;background-color: #fff;border-bottom: 1px solid #D6D6D6;}
 .blog_layout{display:-moz-box;display:-webkit-box;display:box;}
 .content_part{font-size:14px;background-color: #fff;overflow:hidden;}
@@ -41,14 +42,15 @@ header .my_info{font-family: cursive;font-size:40px; color:#fff;margin:10px 0;}
 footer{position:absolute;bottom:0;width: 100%;text-align:center;color:#858585;line-height:40px;}
 
 @media screen and (max-width: 600px){
-	header .hello_board{padding:20px 0;}
+	header .hello_board{padding:60px 0 0 0;display:none}
+	header .head_pic_border{width:80px; height:80px; border-radius: 40px;}
 	header nav.big_nav{position:static;opacity:0.6;}
-	header ul{display:none;width:100%;}
+	header ul{width:100%;}
 	header ul li{float:none; display:block;}
 	#menu-trigger{display:block;}
 	header .my_info{font-size:30px;}
-	.wall{width:95%;}
-	.nav_font{font-size:20px;}
+	.wall{width:95%;padding:40px 0;}
+	.nav_font{font-size: 20px;}
 	.nav_font, .content_part{padding: 20px 10px;}
 	.content_part_right{display:none;}
 }
