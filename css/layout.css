@@ -4,7 +4,7 @@ header ul, .wall{max-width:960px;width:82%;}
 .content_part{padding-top:10px;}
 
 header{width: 100%; background-color: #464646;font-size: 14px;background:url('/resource/image/sky2.jpg'); background-size:cover;}
-header nav.big_nav{width:100%;background-color: #181818;position:fixed;top:0;}
+header nav.big_nav{width:100%;background-color: #181818;position:fixed;top:0;z-index:1000;}
 header ul{overflow:hidden;margin:0 auto;}
 header ul li{float:left;background:#181818;}
 header ul li a{color:#ccc;display:block;height:40px;line-height: 40px;padding: 0 15px;}
@@ -41,7 +41,7 @@ header .my_info{font-family: cursive;font-size:40px; color:#fff;margin:10px 0;}
 .content_part a:hover{color: #00438a;text-decoration: underline;}
 .post_list a{transition:all .3s ease-in;}
 
-#scroll_top_btn{font-size:32px;position:fixed; bottom:60px;right:40px;width:40px;height:40px;z-index:100;color:#fff;line-height:40px;opacity:0;text-align:center;}
+#scroll_top_btn{font-size:32px;position:fixed; bottom:60px;right:40px;width:40px;height:40px;z-index:100;color:#fff;line-height:40px;opacity:0;text-align:center;cursor:pointer;}
 .btn_bg{background:#000;opacity:0.6;width:40px;height:40px;position:absolute; top:0;left:0;z-index:-10;border-radius:5px;}
 
 footer{position:absolute;bottom:0;width: 100%;text-align:center;color:#858585;line-height:40px;}

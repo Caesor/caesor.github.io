@@ -6,17 +6,20 @@ title: Tag
 {% if site.tags.first[0] == null %}
 	{% for tag in site.tags %}      
     <li>
-    <a href="tags.html#{{ tag | first | cgi_encode }}">{{ tag }}<span>{{site.tag[tag].size}}</span></a>
+    	<a href="#{{ tag | first | cgi_encode }}"><i class="fa fa-tags"></i> {{ tag }}<span>{{site.tag[tag].size}}</span></a>
     </li>
     {% endfor %}  
 {% else %}
     {% for tag in site.tags %} 
-    	<li><a href="{{ BASE_PATH }}{{ site.JB.tags_path }}#{{ tag[0] }}-ref">{{ tag[0] }} <span class="tags_num">{{ tag[1].size }}</span></a></li>
+	<li>
+		<a href="#{{ tag[0] }}"><i class="fa fa-tags"></i> {{ tag[0] }} <span class="tags_num">{{ tag[1].size }}</span></a>
+	</li>
     {% endfor %}
   {% endif %}  
 </ul>
 {% for tag in site.tags %}
-<h1 class="post_title">{{ tag | first }}</h1>
+
+<h1 class="post_title" id="{{ tag[0]}}">{{ tag | first }}</h1>
 <ul class="post_list">	
     {% for posts in tag %}
         {% for post in posts %}

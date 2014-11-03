@@ -8,7 +8,6 @@
 
 /* blog */
 .blog_info{padding: 10px 0;color:#00438a;}
-.blog_info .glyphicon{font-size: 12px;}
 .blog_info ul{display:inline-block;margin-right:20px;}
 .blog_info ul li{display:inline-block;padding-left:10px;}
 .blog_content h2{font-size:18px;font-weight:800;display: inline-block;background-color: #2295FF;color: #fff;padding: 0 20px;line-height:30px;margin: 5px 0;border-radius:14px 0;}
