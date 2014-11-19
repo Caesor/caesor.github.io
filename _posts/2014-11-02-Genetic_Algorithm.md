@@ -30,9 +30,73 @@ tags: algorithm
 4、活下去的个体又会成为新生代的父代。
 
 ##遗传算法（Genetic Algorithm）
-![picture1]({{site.baseurl}}/resource/2014-11-02-01.png "example_pic")
+遗传算法又叫基因进化算法，属于共同启发式搜索算法的一种。搜索空间G为给定长度的位流（2进制流）
 
-**进化：随机选择一组个体 -> 从基因型到表现型（GPM） -> 评估 -> 定义健壮的标准 -> 选择 -> 复制 -> 进入下一代的循环**
+它会经历下面几个过程：
+
+1、第一代（t=1），从人口 **pop** 中挑选出 **ps** 个个体 **p**
+
+2、从基因型 **p.g** 映射转换成表现型 **p.x**
+
+3、计算人口 **pop** 中每个个体的对象值 **f(p.x)**
+
+4、开始选择（Selection），使用选择算法选取 **mps** 个个体放入交配池 **mate** 中
+
+5、根据交叉率 **cr** 使用 交叉（Crossover） 和 变异（Mutation）算法产生新一代个体
+
+6、在完成一次函数评估后，检查终止条件决定是否停止迭代
+
+![picture1]({{site.baseurl}}/resource/2014-11-02-01.png "example_pic")
+`public EA() {
+    super();
+    this.cr        = 0.56/** TODO: Set default */;
+    this.ps        = 382/** TODO: Set default */;
+    this.mps       = 80/** TODO: Set default */;
+    this.selection = TruncationSelection.INSTANCE;/** TODO: Set default */;
+  }// start
+  /** {@inheritDoc} */
+  @SuppressWarnings("unchecked")
+  @Override
+  // end
+  public Individual<G, X> solve(final IObjectiveFunction<X> f) {
+    /** TODO */
+	Individual<G, X>[] pop, mate;
+	Individual<G, X> p, parent1, best;
+	pop = new Individual[this.ps];
+	mate = new Individual[this.mps];
+	best = new Individual<>();
+	best.v = Double.POSITIVE_INFINITY;
+	for(int i = 0; i < pop.length; i++){
+		pop[i] = p = new Individual<>();
+		p.g = this.nullary.create(this.random);
+	}
+	for(;;){
+		for(int j = 0; j < pop.length; j++){
+			p = pop[j];
+			p.x = this.gpm.gpm(p.g);
+			p.v = f.compute(p.x);
+			if(p.v < best.v){
+				best.assign(p);  
+			}
+			if(!(this.termination.shouldTerminate()))
+				return best;
+		}
+		this.selection.select(pop, mate, this.random);
+		for(int k = 0; k < pop.length; k++){
+			pop[k] = p = new Individual<>();
+			parent1 = mate[k % mate.length];
+			if(this.random.nextDouble() < this.cr){
+				p.g = this.binary.recombine(parent1.g, mate[this.random.nextInt(mate.length)].g, this.random);
+			}else{
+				p.g = this.unary.mutate(parent1.g, this.random);
+			}
+		}
+	}
+  }
+}`
+
+
+
 
 
 

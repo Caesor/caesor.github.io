@@ -31,10 +31,10 @@ header .my_info{font-family: cursive;font-size:40px; color:#fff;margin:10px 0;}
 .nav_font{font-size: 28px;line-height: 30px;background-color: #fff;border-bottom: 1px solid #D6D6D6;}
 .blog_layout{display:-moz-box;display:-webkit-box;display:box;}
 .content_part{font-size:14px;background-color: #fff;overflow:hidden;}
-.content_part_left{box-flex:1;-moz-box-flex:1; -webkit-box-flex:1;}
-.content_part_right{padding:10px 0 0 20px;}
+.content_part_left{box-flex:1;-moz-box-flex:1; -webkit-box-flex:1;max-width: 700px;}
+.content_part_right{padding:10px 0 0 20px;width:200px;}
 .content_part_right h3{text-align:center;}
-.content_part_right ul{margin:10px 0;}
+.content_part_right ul{margin:10px 0;padding-left: 20px;}
 .content_part_right ul li{list-style:disc;margin: 0 20px;}
 .cross_line{height: 30px;}
 .content_part a{color:#0069d6;}
