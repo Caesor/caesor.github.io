@@ -2,11 +2,11 @@
 layout: template
 title: Archive
 ---
-<p class="blog_list">Newest article</p>
+<h1 class="post_title">Newest article</h1>
 <section class="article_list">
 	<ul>
 		{% for post in site.posts %}
-		  <li>{{ post.date | date_to_string }} >> <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+		  <li><span class="index_blog_date">{{ post.date | date_to_string }}</span> >> <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
 		{% endfor %}
 	</ul>
 </section>

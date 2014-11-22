@@ -2,7 +2,6 @@
 .displayNone{display:none;}
 
 /* blog list */
-.blog_list{font-size:16px;margin:10px 0;}
 .article_list ul{margin-left: 35px;}
 .article_list ul li{list-style-type:disc;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
 
@@ -48,7 +47,7 @@
 .resume_part ul li{list-style-type:disc;}
 
 @media screen and (max-width: 800px){
-	.article_list ul{margin-left: 15px;}
+	.article_list ul{margin-left: 0;}
 	.resume_part ul{margin-left: 15px;}
 	.post_title{margin: 10px 0 10px;}
 	.tag_list li{margin: 0 10px 10px 0;}
@@ -57,5 +56,9 @@
 	
 	.blog_info ul{margin-right: 10px;}
 	.blog_info ul li{padding-left: 5px;}
+
+	.index_blog_date{display:none;}
+	.post_list li{margin-right:0;}
+	.post_list span{display:none;}
 	
 }
