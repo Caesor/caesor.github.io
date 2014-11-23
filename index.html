@@ -6,7 +6,7 @@ title: Archive
 <section class="article_list">
 	<ul>
 		{% for post in site.posts %}
-		  <li><span class="index_blog_date">{{ post.date | date_to_string }}</span> >> <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+		  <li><span class="index_blog_date">{{ post.date | date_to_string }}</span> > <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
 		{% endfor %}
 	</ul>
 </section>
