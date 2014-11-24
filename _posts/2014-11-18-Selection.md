@@ -7,17 +7,15 @@ tags: algorithm
 遗传算法包括三个基本操作**选择、交叉、变异**，这一篇说说选择（Selection）
 
 ##轮盘赌选择（Roulette Wheel Selection）
+![picture1]({{site.blogimgurl}}/2014-11-18-01.png "roulette wheel selection")
 
-`public class RouletteWheelSelection implements ISelectionAlgorithm { // start
-  /** the temp */
+`public class RouletteWheelSelection implements ISelectionAlgorithm {
+  //
   private double[] temp;
-  /** the roulette wheel selection */
   public RouletteWheelSelection() {
     super();
   }
-  /** {@inheritDoc} */
   @Override
-  // end
   public void select(final Individual<?, ?>[] pop, final Individual<?, ?>[] mate, final Random r){
   double[] t;
     double max, last;
@@ -28,7 +26,7 @@ tags: algorithm
       this.temp = t = new double[pop.length];
     }
     max = Double.NEGATIVE_INFINITY;
-    //find the max in individual
+    //找到个体中适应值最大的
     for (Individual<?, ?> indi : pop) {
       max = Math.max(indi.v, max);
     }
@@ -54,17 +52,16 @@ tags: algorithm
 `
 
 ##截断选择（Truncation Selection）
-`public class TruncationSelection implements ISelectionAlgorithm { // start
+`public class TruncationSelection implements ISelectionAlgorithm {
   /** the globally shared instance */
   public static final TruncationSelection INSTANCE = new TruncationSelection();
-  /** the truncation selection */
   private TruncationSelection() {
     super();
   }
   @Override
   public void select(final Individual<?, ?>[] pop, final Individual<?, ?>[] mate, final Random r) {
 	  Individual<?,?> swap;
-	  //根据目标函数f的值作为强度，使用冒泡排序法对人口进行排序
+	  //根据目标函数f求得的适应值使用冒泡排序法对人口进行排序，适应值从大到小
 	  for(int i = 0; i < pop.length; i++){
 		  for (int j = 1; j < pop.length - i + 1; j++) {
 			  if(pop[j-1].v < pop[j].v){

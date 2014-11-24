@@ -1,2 +1,4 @@
 baseurl:
 permalink: /:month-:day-:year/:title.html
+blogimgurl: /resource/blog_img
+demourl: /demo

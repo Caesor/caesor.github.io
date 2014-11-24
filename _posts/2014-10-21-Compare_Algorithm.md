@@ -28,7 +28,7 @@ tags: algorithm
 
 **缺点** ： 与真实时间无关；并不包括“隐藏复杂性”的算法；在不同情况下代价不同。
 
-![picture1]({{site.baseurl}}/resource/2014-10-21-01.png "example_pic")
+![picture1]({{site.blogimgurl}}/2014-10-21-01.png "FE")
 
 水平线 ： 表示要达到一个特定的目标值所需要的性能评估次数。
 垂直线 ： 表示在一定书目的性能评估后所能达到的最好目标值。
@@ -41,22 +41,22 @@ tags: algorithm
 分布情况统计参数都是从一个样本中估算出来的。
 
 **算术平均（Arithmetic Mean）** ： 是一个期望值的预期。
-![picture1]({{site.baseurl}}/resource/2014-10-21-02.png "example_pic")
+![picture1]({{site.blogimgurl}}/2014-10-21-02.png "mean")
 
 **中位数（Median）** : 中位数 X 是样本和分布最中间的数。
-![picture1]({{site.baseurl}}/resource/2014-10-21-03.png "example_pic")
+![picture1]({{site.blogimgurl}}/2014-10-21-03.png "median")
 
 **Mean vs. Median** : 在描述一个随机过程时，我们应该总是使用中位数而不是算数平均数。因为中位数是对异常值适用性强,算术平均数只适用于对称分布，对偏斜分布的描述很糟糕。
 
 **标准差（Standard Deviation）** : 
-![picture1]({{site.baseurl}}/resource/2014-10-21-04.png "example_pic")
+![picture1]({{site.blogimgurl}}/2014-10-21-04.png "standard diviation")
 
 **位数（Quantiles）** : q 位分割数据样本A = (A[1] , A[2] , . . . , A[n])为 q 份，每一部分元素数目相等（A为顺序样本，且序号从 0 开始）
-![picture1]({{site.baseurl}}/resource/2014-10-21-05.png "example_pic")（2-位就是中位数， 4-位就是四分位）
+![picture1]({{site.blogimgurl}}/2014-10-21-05.png "quantiles")（2-位就是中位数， 4-位就是四分位）
 
 例子：
 
-![picture1]({{site.baseurl}}/resource/2014-10-21-06.png "example_pic")
+![picture1]({{site.blogimgurl}}/2014-10-21-06.png "quantiles")
 
 **Standard Deviation vs. Quantiles** : 标准差总是适用于对称分布，位数总是对异常值和偏斜分布适用性更强。
 
@@ -72,14 +72,14 @@ tags: algorithm
 A = (2, 5, 6, 7, 9, 10) 
 B = (1, 3, 4, 8)
 
-统计学操作γ ,我们选择算数平均数。![picture1]({{site.baseurl}}/resource/2014-10-21-07.png "example_pic")
+统计学操作γ ,我们选择算数平均数。![picture1]({{site.blogimgurl}}/2014-10-21-07.png "example_pic")
 
 问题是：A和B的算数平均数的差别保持在α = 2%吗？
 
 零假设H0为：A和B来自同一个过程，它们的差别是因为随机取样的缘故。
 
-如果过A和B来自同一个分布，那么我们会有一个大的样本集合O = A ∪ B = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)，任何将其分割为4、6两份的操作都有相同的概率。从结合O中选择6个样本有210中可能性，通过实验我们发现一共有27个组合的算数平均数小于或等于4，那么假设H0成立的概率是![picture1]({{site.baseurl}}/resource/2014-10-21-08.png "example_pic")，从另外一个方向入手我们同样可以得到相同的结论。
-![picture1]({{site.baseurl}}/resource/2014-10-21-09.png "example_pic")
+如果过A和B来自同一个分布，那么我们会有一个大的样本集合O = A ∪ B = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)，任何将其分割为4、6两份的操作都有相同的概率。从结合O中选择6个样本有210中可能性，通过实验我们发现一共有27个组合的算数平均数小于或等于4，那么假设H0成立的概率是![picture1]({{site.blogimgurl}}/2014-10-21-08.png "example_pic")，从另外一个方向入手我们同样可以得到相同的结论。
+![picture1]({{site.blogimgurl}}/2014-10-21-09.png "example_pic")
 
 因此，如果我们要声称A和B来自两个不同的分布，那么我们错误的概率就是p ≈ 0.13 。 在α = 2%的前提下（2% < 0.13），说明A和B来自于同一个分布。
 

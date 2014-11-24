@@ -6,7 +6,7 @@ tags: algorithm
 ---
 遗传算法包括三个基本操作**选择、交叉、变异**，这一篇说说交叉（Crossover）
 交叉有单点交叉（Single－Point）、两点交叉（Two－Point）、多点交叉（Multi－Point）和组合交叉（Uniform）
-![picture1]({{site.baseurl}}/resource/2014-11-20-01.png "example_pic")
+![picture1]({{site.blogimgurl}}/2014-11-20-01.png "example_pic")
 
 ##单点交叉（Single－Point）
 `public class BitsBinarySPX implements IBinarySearchOperation<boolean[]> {// start

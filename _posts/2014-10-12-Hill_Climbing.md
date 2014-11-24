@@ -46,7 +46,7 @@ tags: algorithm
 登山算法每次都通过搜索空间朝一个更好地候选结果“移动”。
 
 每次都朝一个更好的方向移动会发生什么问题呢？
-![picture1]({{site.baseurl}}/resource/2014-10-12-01.png "meta")
+![picture1]({{site.blogimgurl}}/2014-10-12-01.png "negative problem")
 
 通过上图我们可以看到： 如果不能够探索搜索空间内的其他部分，优化算法会过早的朝一个局部优化融合。在空间内的其他部位会有更有的结果我们将无法找到！
 

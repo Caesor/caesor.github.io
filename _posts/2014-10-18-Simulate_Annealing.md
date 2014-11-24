@@ -8,7 +8,7 @@ tags: algorithm
 
 金属的冷加工会导致晶体结构的缺陷，于是在冷加工之后，会来一次退火。当金属加热到大概0.4个冶炼温度的时候金属内部的离子就开始到处移动。当金属慢慢冷却下来，离子的变得低能，稳态——金属变得更加稳定。
 在这个过程中，离子会暂时的处于高能状态，最后，不稳定的结晶态会经过一系列变化成为一个更稳定的结构。
-![picture1]({{site.baseurl}}/resource/2014-10-18-01.png "example_pic")
+![picture1]({{site.blogimgurl}}/2014-10-18-01.png "annealing")
 
 ##梅特罗伯利斯算法（Metropolis Algorithm）
 
@@ -17,7 +17,7 @@ tags: algorithm
 **一些参数** ：  温度（T）随时间降低;  能量状态（E），离子移动的越快，能量越高，E越大;  pos是当前的离子状态，pos'是一个新的状态。
 
 ∆E = E(pos') - E(pos)
-![picture1]({{site.baseurl}}/resource/2014-10-18-02.png "example_pic")
+![picture1]({{site.blogimgurl}}/2014-10-18-02.png "metropolis")
 
 P（∆E）表示新装态pos'可能被接受的一个概率。
 
@@ -29,7 +29,7 @@ Metropolis Algorithm表现了物理系统是如何找到一个低能状态的。
 
 **∆E = f (x') − f (x)** ： ∆E表示新状态（x'）和候选结果（x）的差值
 
-![picture1]({{site.baseurl}}/resource/2014-10-18-03.png "example_pic")
+![picture1]({{site.blogimgurl}}/2014-10-18-03.png "SA")
 
 **P（∆E）**表示新的候选值 x' 能够被采纳的概率。  **T** 温度随着时间的增加而减少
 `public class SA<G, X> extends OptimizationAlgorithm<G, X> {
@@ -87,7 +87,7 @@ Metropolis Algorithm表现了物理系统是如何找到一个低能状态的。
 ##温度调控
 
 温度调控可以让模拟退火算法（Simulate Annealing Algorithm）的表现行为从“随机行走算法（Random Walking Algorithm）”的**高温状态**（T越大P（∆E）越大，糟糕的状态被接受的可能性就越大）转向“登山算法（Hill Climbing Algorithm）”的**低温状态**（T越小，糟糕的状态被接受的可能性就越小）。
-![picture1]({{site.baseurl}}/resource/2014-10-18-04.png "example_pic")
+![picture1]({{site.blogimgurl}}/2014-10-18-04.png "lines")
 
 **对数调度（Logarithmic）** : 参数Ts的取值要比“本地最小目标差值”和“最佳临近候选结果”的值要大。
 

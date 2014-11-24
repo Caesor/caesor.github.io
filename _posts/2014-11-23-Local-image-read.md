@@ -6,7 +6,7 @@ tags : javascript
 ---
 想要在页面显示本地图片，以前我们通常的做法是将选择的图片文件上传至服务器后端，后端对其进行存储，再将图片的URL返回到前端，前端通过这个URL来显示图片。而HTML5的**FileReader**接口支持本地预览，**FileReader**接口主要是将文件读入内存，并提供相应的方法，来读取文件中的数据，当然就能显示本地图片而不用上传了。
 
-**点击进入查看[demo]({{site.baseurl}}/demo/file_reader.html)**
+**点击进入查看[demo]({{site.demourl}}/file_reader.html)**
 
 目前比较高端的浏览器都实现了FileReader接口。直接代码示例：
 
@@ -40,6 +40,6 @@ function readFile(){
 
 **另附：FileReader的方法和事件**
 
-![picture1]({{site.baseurl}}/resource/2014-11-23-01.png "meta")
+![picture1]({{site.blogimgurl}}/2014-11-23-01.png "filereader")
 
 

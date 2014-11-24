@@ -20,7 +20,7 @@ tags: algorithm
 
 有两类随机算法：**拉斯维加斯算法（Las Vegas Algorithm）**和**蒙特卡诺算法（Monte Carlo Algorithm）**。拉斯维加斯算法要么返回一个正确的结果要么纯粹没有返回值，蒙特卡洛算法总会终结，它一定会返回一个正确或者错误的结果。
 
-**共通启发式演算法（Metaheuristics）**:共通启发式演算法是一种解决一般问题的方法。它将目标函数和启发式想结合产生一个抽象并且有效的方式作为一个黑盒程序。
+**共通启发式演算法（Metaheuristics）**:共通启发式演算法是一种解决一般问题的方法。它将目标函数和启发式相结合产生一个抽象并且有效的方式作为一个黑盒程序。
 
 优化算法又可被分为**在线（Online）**和**离线（Offline）**两种过程，在线过程需要快速完成，大约在10ms到几分钟的时间内完成。而时间对离线过程并不重要，用户为了得到更好地结果可能要等待几天或者几周时间。
 
@@ -33,7 +33,7 @@ tags: algorithm
 **Example:Traveling Salesman Problem**
 
 一个商人选择最短的距离访问 n 个城市。所有的城市只能访问一次并且最终要回到出发的城市。Traveling Salesman Problem(TSP)的目标是要找到一条访问了所有城市并且距离总和最短环路。
-![picture1]({{site.baseurl}}/resource/2014-10-10-01.png "tsp")
+![picture1]({{site.blogimgurl}}/2014-10-10-01.png "tsp")
 
 1.**问题空间（Problem Space）X**: 问题结果x的集合，x被称为备选结果
 
@@ -47,7 +47,7 @@ TSP的目标函数是：Minimize f (x) = dist( Hefei , x[0]) + Σ（i=0->2）dis
 
 3.**共通启发式演算法（Metaheuristics）**: 我们知道问题空间X的数据结构，那么我们可以随机创建一个实例x！然后修改已存在的实例x，或者合并存在的实例x1、x2。如果能够足够好的完成这个，我们就成功啦！
 
-![picture1]({{site.baseurl}}/resource/2014-10-10-02.png "meta")
+![picture1]({{site.blogimgurl}}/2014-10-10-02.png "meta")
 
 接下来我们就需要得到实例x了！还需要一个修改实例的方法！或者是一个合并实例的方法！
 
@@ -58,13 +58,12 @@ TSP的目标函数是：Minimize f (x) = dist( Hefei , x[0]) + Σ（i=0->2）dis
 那么，TSP的可以将自己的问题空间转化为X = Π { 0 , 1 , 2 , 3 , 4 }
 
 但是如果有些问题的问题空间不是著名的数据结构应该怎么办呢？那我们转化它！
-比如：![picture1]({{site.baseurl}}/resource/2014-10-10-03.png "meta")
+比如：![picture1]({{site.blogimgurl}}/2014-10-10-03.png "meta")
 我们把这个过程称为**基因-表现型映射（Genotype-Phenotype Mapping）**，Genotype-Phenotype Mapping（GPM）G → X将实际中的**搜索空间（Search Space）**G映射到了问题空间X中。
 
 4.**终止条件（Termination Criterion）**决定了该方法迭代的结束条件，我们通过设置最大步数（MaxStep）来终结算法。
 
-
-##优化算法模型函数
+##优化算法函数模型
 `public abstract class OptimizationAlgorithm<G, X> {
   public INullarySearchOperation<G> nullary;
   public IUnarySearchOperation<G> unary;
@@ -73,3 +72,4 @@ TSP的目标函数是：Minimize f (x) = dist( Hefei , x[0]) + Σ（i=0->2）dis
   public final Random random;
   public abstract Individual<G, X> solve(final IObjectiveFunction<X> f);
 }`
+
