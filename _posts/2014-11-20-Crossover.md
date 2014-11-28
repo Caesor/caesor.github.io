@@ -14,14 +14,13 @@ tags: algorithm
   public BitsBinarySPX() {
     super();
   }
-  /** {@inheritDoc} */
   @Override
-  // end
   public boolean[] recombine(final boolean[] p1, final boolean[] p2, final Random r) {
 	  int n = p1.length;
 	  int crossPoint = r.nextInt(n);
 	  final boolean[] p;
 	  p = p1.clone();
+    //交换某个点后的所有基因
 	  for(int i = crossPoint; i < n; i++){
 		  p[i] = p2[i];
 	  }
@@ -30,19 +29,16 @@ tags: algorithm
 }`
 
 ##组合交叉（Uniform）
-`public class BitsBinaryUX implements IBinarySearchOperation<boolean[]> {// start
-  /** instantiate */
+`public class BitsBinaryUX implements IBinarySearchOperation<boolean[]> {
   public BitsBinaryUX() {
     super();
   }
-  /** {@inheritDoc} */
   @Override
-  // end
   public boolean[] recombine(final boolean[] p1, final boolean[] p2, final Random r) {
-    /** TODO */
 	  int n = p1.length;
 	  final boolean[] p;
 	  p = p1.clone();
+    //随机交换每一对基因
 	  for(int i = 0; i < n; i++){
 		  if(Math.random() > 0.5){
 			  p[i] = p2[i];
