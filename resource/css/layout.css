@@ -9,7 +9,7 @@ header ul{overflow:hidden;margin:0 auto;}
 header ul li{float:left;background:#181818;}
 header ul li a{color:#ccc;display:block;height:40px;line-height: 40px;padding: 0 15px;}
 header ul li a:hover{color:#fff;text-decoration:none;}
-header ul li.selected{background-color:#000;}
+header ul li.selected{background-color:#000;border-bottom: 1px solid #D3CFCF;}
 header ul li.selected a{color:#fff;}
 /* blackboard */
 header .hello_board{width:100%;text-align:center;padding: 80px 0 20px 0;}
