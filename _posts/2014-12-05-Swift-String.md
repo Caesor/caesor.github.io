@@ -101,6 +101,15 @@ var num1 = 3.14
 String(format:"%f", num1)   //return "3.140000"
 String(format:"%.2f", num1) //return "3.14"`
 
+**Something else**
+
+如果你对 3.140000 这种形式的数字感到恶心的话，那么你就对了因为我也是这样，试想：
+`var result = 3.125 + 4.875 	//return 8.0 , It's good!
+//但是你如果使用String(format:)进行转换
+String(format: "%f", result) 	//return 8.00000  It's bad!
+//所以你不如直接使用“字符串插值”的方法
+“\(result)”`
+
 ##String.Index 和 Range
 在swift语言中，你会发现很多函数参数中要求 String.Index 类型，那下面我们就用实例来说明什么是 String.Index 类型
 **范围**
