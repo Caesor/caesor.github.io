@@ -22,6 +22,13 @@
 .prettyprint ol{text-indent: 10px;border:1px solid #E6E6E6; border-radius: 5px;}
 /*.prettyprint ol li{list-style-type:decimal; list-style-position:inside;}*/
 
+/* table in blog */
+.blog_content table{width: 100%;border-spacing: 0;border-color: gray;border-collapse: collapse;}
+.blog_content table thead {display: table-header-group;vertical-align: middle;border-color: inherit;}
+.blog_content table tr th,.blog_content table tr td{padding: 8px 10px;line-height: 1.5}
+.blog_content table thead tr{border-bottom: 1px solid #ccc;font-size:15px;font-weight: 800}
+.blog_content table tbody tr {border-top: 1px solid #ccc;}
+
 /* category & tag page */
 .post_title{font-size: 20px;margin: 20px 0 10px;}
 .post_list{position:relative;}
