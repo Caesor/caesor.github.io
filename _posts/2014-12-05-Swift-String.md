@@ -22,6 +22,15 @@ let str2 = String()`
 var str3:NSString = str
 str3.length`
 
+**字符串的遍历**
+`for eachChar in str{
+	println eachChar
+}
+//这时有人会问，那么我想从后往前遍历呢？！
+for eachChar in reverse(str){
+	println eachChar
+}`
+
 **字符串拼接**
 `//拼接字符串型
 str += " Hello"
@@ -142,6 +151,13 @@ var fromIndex = advance(str7.startIndex, 14)
 str7.substringFromIndex(fromIndex) // y swift!step by step le...
 //在字符串 4 位置开始，到 14 位置结束
 str7.substringWithRange(Range<String.Index>(start:toIndex, end:fromIndex)) //ome to pla`
+
+**获取字符串最后一个字符**
+`//方法一
+str7.substringFromIndex(str7.endIndex.predecessor())
+//方法二－较繁琐
+var lastChar:String.Index = advance(str7.startIndex, countElements(str7) - 1)
+var lastChar = str7.substringFromIndex(lastChar)`
 
 **字符串插入**
 `var insertIndex = advance(str7.startIndex, 22)

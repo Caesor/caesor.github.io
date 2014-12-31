@@ -24,7 +24,7 @@ header .my_info{font-family: cursive;font-size:40px; color:#fff;margin:10px 0;}
 /* menu button */
 .small_nav{width:100%;position:absolute; top:0;background:#181818;text-align:right;display:none;}
 .small_nav h3{float: left;color: #ECECEC;font-size: 25px;line-height: 45px;margin-left: 20px;}
-#menu-trigger{font-size: 32px;color: #eee;cursor: pointer;padding: 0 4px;border: 1px solid #999;border-radius: 5px;margin: 5px;}
+#menu-trigger{font-size: 28px;color: #eee;cursor: pointer;padding: 0 4px;margin:0 5px;line-height: 45px;}
 
 
 .wall{margin: 0 auto;padding:0 0 40px 0;color:#303030;}
