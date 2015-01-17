@@ -47,65 +47,74 @@ tags: algorithm
 6、在完成一次函数评估（适应性检测）后，检查终止条件决定是否停止迭代
 
 ![picture1]({{site.blogimgurl}}/2014-11-02-01.png "EA")
-`public EA() {
-    super();
-    //变异系数
-    this.cr        = 0.56;
-    //种族的总个体数
-    this.ps        = 382;
-    //交配池能容纳的个体
-    this.mps       = 80;
-    //选取截断算法选择个体进入交配池
-    this.selection = TruncationSelection.INSTANCE;;
-  }
-  @SuppressWarnings("unchecked")
-  @Override
-  public Individual<G, X> solve(final IObjectiveFunction<X> f) {
-	Individual<G, X>[] pop, mate;
-	Individual<G, X> p, parent1, best;
-	//pop中存放种族中所有个体
-	pop = new Individual[this.ps];
-	//mate中存放即将要交配的个体
-	mate = new Individual[this.mps];
-	best = new Individual<>();
-	best.v = Double.POSITIVE_INFINITY;
-	//生成种族群体
-	for(int i = 0; i < pop.length; i++){
-		pop[i] = p = new Individual<>();
-		//随机生成基因，基因为二进制流
-		p.g = this.nullary.create(this.random);
-	}
-	for(;;){
-		//适应性检测
-		for(int j = 0; j < pop.length; j++){
-			p = pop[j];
-			p.x = this.gpm.gpm(p.g);
-			//计算每个个体的适应值，选择当前一代群体中适应性最强的个体
-			p.v = f.compute(p.x);
-			if(p.v < best.v){
-				best.assign(p);  
-			}
-			if(!(this.termination.shouldTerminate()))
-				return best;
+
+	public EA() {
+	    super();
+	    //变异系数
+	    this.cr        = 0.56;
+	    //种族的总个体数
+	    this.ps        = 382;
+	    //交配池能容纳的个体
+	    this.mps       = 80;
+	    //选取截断算法选择个体进入交配池
+	    this.selection = TruncationSelection.INSTANCE;;
+	  }
+	  @SuppressWarnings("unchecked")
+	  @Override
+	  public Individual<G, X> solve(final IObjectiveFunction<X> f) {
+		Individual<G, X>[] pop, mate;
+		Individual<G, X> pbest, pcur, parent;
+
+		//pop中存放种族中所有个体
+		pop = new Individual[this.ps];
+		//mate中存放即将要交配的个体
+		mate = new Individual[this.mps];
+
+		parent = new Individual<>();
+		pbest = new Individual<>();
+		pbest.v = Double.POSITIVE_INFINITY;
+
+		//生成种族群体
+		for(int i = 0; i < pop.length; i++){
+			pop[i] = pcur = new Individual<>();
+			//随机生成基因，基因为二进制流
+			pcur.g = this.nullary.create(this.random);
 		}
-		//通过选择算法选取个体进入交配池
-		this.selection.select(pop, mate, this.random);
-		//交配并产生下一代，直到新一代种族个体的数目达到原有水平
-		for(int k = 0; k < pop.length; k++){
-			pop[k] = p = new Individual<>();
-			//从交配池中选择一个个体作为父代
-			parent1 = mate[k % mate.length];
-			//概率小于cr时，产生一个交配后代
-			if(this.random.nextDouble() < this.cr){
-				//交叉式交配
-				p.g = this.binary.recombine(parent1.g, mate[this.random.nextInt(mate.length)].g, this.random);
-			}else{//概率大于cr时，个体发生变异
-				p.g = this.unary.mutate(parent1.g, this.random);
+		for(;;){
+			//适应性检测
+			for(int j = 0; j < pop.length; j++){
+				pcur = pop[j];
+				pcur.x = this.gpm.gpm(pcur.g);
+				//计算每个个体的适应值，选择当前一代群体中适应性最强的个体
+				pcur.v = f.compute(pcur.x);
+				if(pcur.v < best.v){
+					best.assign(pcur);  
+				}
+				if(this.termination.shouldTerminate())
+					return best;
+			}
+
+			//通过选择算法选取个体进入交配池
+			this.selection.select(pop, mate, this.random);
+
+			//交配并产生下一代，直到新一代种族个体的数目达到原有水平
+			for(int k = 0; k < pop.length; k++){
+				pop[k] = pcur = new Individual<>();
+				//从交配池中选择一个个体作为父代
+				parent = mate[k % mate.length];
+				//概率小于cr时，产生一个交配后代
+				if(this.random.nextDouble() < this.cr){
+					//交叉式交配
+					pcur.g = this.binary.recombine(parent.g, mate[this.random.nextInt(mate.length)].g, this.random);
+				}else{//概率大于cr时，个体发生变异
+					pcur.g = this.unary.mutate(parent.g, this.random);
+				}
 			}
 		}
+	  }
 	}
-  }
-}`
+
+我们将在后面的具体介绍**交叉式交配**和**变异**的具体算法。
 
 
 

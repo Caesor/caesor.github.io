@@ -7,6 +7,7 @@ tags: algorithm
 遗传算法包括三个基本操作**选择、交叉、变异**，这一篇说说选择（Selection）
 
 ##轮盘赌选择（Roulette Wheel Selection）
+
 ![picture1]({{site.blogimgurl}}/2014-11-18-01.png "roulette wheel selection")
 
 轮盘赌选择法可用如下过程来模拟实现：
@@ -109,20 +110,8 @@ tags: algorithm
   }
   @Override
   public void select(final Individual<?, ?>[] pop, final Individual<?, ?>[] mate, final Random r) {
-    Individual<?,?> swap;
-    //根据目标函数f求得的适应值使用冒泡排序法对人口进行排序，适应值从大到小
-    for(int i = 0; i < pop.length; i++){
-      for (int j = 1; j < pop.length - i + 1; j++) {
-        if(pop[j-1].v < pop[j].v){
-          swap = pop[j-1];
-          pop[j - 1] = pop[j];
-          pop[j] = swap;
-        }
-      }
-    }
-    //将排在前面的人口纳入交配池
-    for(int i = 0; i < mate.length; i++){
-      mate[i] = pop[i];
-    }
-  }
+    //对 pop 中的所有个体进行排序(默认从小到大-升序排列)
+    Arrays.sort(pop);
+    //复制 pop 数组中从 0~mate.length 的数据 到 mate 数组中 0~mate.length
+    System.arraycopy(pop, 0, mate, 0, mate.length);
 }`

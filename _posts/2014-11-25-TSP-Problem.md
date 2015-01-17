@@ -6,11 +6,12 @@ tags: algorithm
 ---
 ##Traveling Salesman Problem（TSP）
 首先让我们回顾一下**TSP**问题：一个商人想要以最短时间访问n个城市，每个城市只能去一次，并且最终将回到他出发的城市。
+
 ![picture1]({{site.blogimgurl}}/2014-11-25-01.png "tsp")
 
-问题空间：X = Π { Beijing , Chengdu , Guangzhou , Hefei , Shanghai }
+**问题空间：**X = Π { Beijing , Chengdu , Guangzhou , Hefei , Shanghai }
 
-目标函数：Minimize f (x) = dist( Hefei , x[0]) + Σ（i=0->2）dist(x[i] , x[i + 1])+dist(x[3] , Hefei )
+**目标函数：**Minimize f (x) = dist( Hefei , x[0]) + Σ（i=0->2）dist(x[i] , x[i + 1])+dist(x[3] , Hefei )
 
 `public class TSPProblem implements IObjectiveFunction<int[]> {
   //使用二维数组记录每两个城市之间的距离
@@ -55,7 +56,7 @@ tags: algorithm
 那我们怎么去解决这个问题呢？
 
 ##关于TSP所采用的gpm详解
-**TSP**的问题空间为X = Π { Beijing , Chengdu , Guangzhou , Hefei , Shanghai }，在共同启发式演算法中，TSP问题的**表现型**就是它的问题空间，我们可以将问题空间转化为搜索空间G = Π { 0 , 1 , 2 , 3 , 4 }，即它的**基因型**。
+**TSP**的问题空间为X = Π { Beijing , Chengdu , Guangzhou , Hefei , Shanghai }，在共同启发式演算法中，TSP问题的**表现型**就是它的问题空间，我们可以将问题空间转化为**搜索空间G = Π { 0 , 1 , 2 , 3 , 4 }**，即它的**基因型**。
 
 **使用基因型代替表现型的好处是：可以将目标函数和元启发式相结合产生一个抽象并且有效的方式作为一个黑盒程序。**
 
@@ -112,7 +113,6 @@ while(!(this.termination.shouldTerminate())){
 	int i = r.nextInt(n);
 	int j = r.nextInt(n);
 	while (i == j){
-		i = r.nextInt(n);
 		j = r.nextInt(n);
 	}
 	//交换

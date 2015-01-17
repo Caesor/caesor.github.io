@@ -57,8 +57,10 @@ TSP的目标函数是：Minimize f (x) = dist( Hefei , x[0]) + Σ（i=0->2）dis
 
 那么，TSP的可以将自己的问题空间转化为X = Π { 0 , 1 , 2 , 3 , 4 }
 
-但是如果有些问题的问题空间不是著名的数据结构应该怎么办呢？那我们转化它！
-比如：![picture1]({{site.blogimgurl}}/2014-10-10-03.png "meta")
+但是如果有些问题的问题空间不是著名的数据结构应该怎么办呢？那我们转化它！比如：
+
+![picture1]({{site.blogimgurl}}/2014-10-10-03.png "meta")
+
 我们把这个过程称为**基因-表现型映射（Genotype-Phenotype Mapping）**，Genotype-Phenotype Mapping（GPM）G → X将实际中的**搜索空间（Search Space）**G映射到了问题空间X中。
 
 4.**终止条件（Termination Criterion）**决定了该方法迭代的结束条件，我们通过设置最大步数（MaxStep）来终结算法。
