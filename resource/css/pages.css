@@ -2,10 +2,16 @@
 .displayNone{display:none;}
 
 /* blog list */
+.article_list{width: 800px;margin: 0 auto;}
 .article_list ul{margin-left: 35px;}
 .article_list ul li{list-style-type:disc;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
 
 /* blog */
+.blog{display: block;}
+.special_box{overflow: hidden;}
+.blog_content{width:75%;float: left;position: relative;}
+#blog_nav{width:200px;float: right;max-width: 200px;}
+.blog_title{padding:20px 0;font-size: 28px;line-height: 30px;border-bottom: 1px solid #C8C8C8;}
 .blog_info{padding: 10px 0;color:#00438a;}
 .blog_info ul{display:inline-block;margin-right:20px;}
 .blog_info ul li{display:inline-block;padding-left:10px;}
@@ -16,10 +22,16 @@
 .blog_content .pagination li{float: left;padding: 5px 10px;border: 1px solid #eee;}
 .blog_content .pagination li:hover{cursor: pointer;background: #fafafa;}
 .blog_content .pagination li a{text-decoration: none;}
+#blog_nav h3{text-align:center;}
+#blog_nav ul{margin:10px 0;padding-left: 20px;}
+#blog_nav li{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+#blog_nav ul li a{color:#888;padding: 10px 20px 10px 10px;line-height: 30px;}
+#blog_nav ul li a:hover{color: #00438a;border-left: 2px solid #0069d6;text-decoration: none;}
+.cross_line{height: 30px;}
 
 /* code in blog */
 .prettyprint{white-space:pre;white-space:pre-wrap;word-break:break-all;word-wrap:break-word;}
-.prettyprint ol{text-indent: 10px;border:1px solid #E6E6E6; border-radius: 5px;}
+.prettyprint ol{text-indent: 10px;border:1px solid #E6E6E6; border-radius: 5px;background: #fff;}
 /*.prettyprint ol li{list-style-type:decimal; list-style-position:inside;}*/
 
 /* table in blog */
@@ -57,8 +69,11 @@
 	.article_list ul{margin-left: 0;}
 	.resume_part ul{margin-left: 15px;}
 	.post_title{margin: 10px 0 10px;}
+
+	.blog_title{font-size: 20px;padding: 20px 0;}
 	.tag_list li{margin: 0 10px 10px 0;}
 	.tag_list li a{font-size:14px;padding: 0 8px;}
+	.blog_content{width: 100%;}
 	.blog_content h2{font-size:16px;line-height:25px;}
 	
 	.blog_info ul{margin-right: 10px;}

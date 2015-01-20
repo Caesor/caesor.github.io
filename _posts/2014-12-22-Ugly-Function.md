@@ -17,7 +17,7 @@ tags: algorithm
 
 **目标函数：**既是UglyFunction本身
 
-##Hill Climbing 解决 UglyFunction
+##使用HC解决UglyFunction
 
 **GMP：**使用登山算法 基因型与表现型完全相同
 

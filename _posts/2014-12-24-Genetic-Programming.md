@@ -4,7 +4,7 @@ title: 实用优化算法（十四）基因编程（Genetic Programming）
 categories: algorithm
 tags: algorithm
 ---
-##什么是基因编程？
+##什么是基因编程
 
 基因编程是一种进化算法。基于人口的优化算法；过程迭代（每一代）；每一代人口经历适者生存淘汰；被选中的个体通过变异和重组再繁殖
 

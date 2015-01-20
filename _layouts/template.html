@@ -10,40 +10,34 @@
 </head>
 <body class="bg">
 	<header>
-		<section class="hello_board">
-			<section class="head_pic_border"><img src="{{ site.imageurl }}/head.jpg"></section>
-			<article class="my_info">Caesor</article>
-			<nav class="big_nav">
-				<ul>
-					<li><a href="{{ site.baseurl }}/">Archive</a></li>
-					<li><a href="{{ site.baseurl }}/category.html">Category</a></li>
-					<li><a href="{{ site.baseurl }}/tag.html">Tag</a></li>
-					<li><a href="{{ site.baseurl }}/about.html">About</a></li>
-				</ul>
-			</nav>
-		</section>
+		<h1 class="logo_text">水墨中国<section class="logo_img"></section></h1>
+		<nav class="big_nav">
+			<ul>
+				<li><a href="{{ site.baseurl }}/">Archive</a></li>
+				<li><a href="{{ site.baseurl }}/category.html">Category</a></li>
+				<li><a href="{{ site.baseurl }}/tag.html">Tag</a></li>
+				<li><a href="{{ site.baseurl }}/about.html">About</a></li>
+			</ul>
+		</nav>
 		<nav class="small_nav">
-			<h3>Blog</h3>
-			<i id="menu-trigger" class="fa fa-bars"></i>
+			<i id="menu-trigger" class="fa fa-bars" statu="0"></i>
 		</nav>
 	</header>
 	<section class="wall">
-		<section class="nav_font">
-			<h1>{{ page.title }}</h1>
-		</section>
-		<section class="content_part">
-			{{ content }}
-		</section>
+		{{ content }}
 	</section>
+	<footer>
+		<p>© Nemo 2014 with help of Jekyll</p>
+	</footer>
+
 	<!-- scroll top botton -->
 	<div id="scroll_top_btn" class="btn_feild displayNone">
 		<i class="btn_bg"></i>
 		<i class="fa fa-angle-double-up"></i>
 	</div>
-	<footer>
-		<p>© Nemo 2014 with help of Jekyll</p>
-	</footer>
+
 	<script type="text/javascript" src="{{ site.baseurl }}/resource/js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="{{ site.baseurl }}/resource/bootstrap/scrollspy.js" ></script>
 	<script type="text/javascript" src="{{ site.baseurl }}/resource/google-code-prettify/prettify.js"></script>
 	<script type="text/javascript">
 		$(function(){
@@ -63,7 +57,7 @@
 			
 			$('header ul li').removeClass('selected');
 			$('header ul li a').each(function(){
-				if($(this).text() == $('.nav_font h1').text()){
+				if($(this).text() == "{{ page.title }}"){
 					$(this).parent().addClass('selected');
 				}
 			})
@@ -71,14 +65,41 @@
 			if( $('body').height() < $(window).height()){
 				$('.bg').height($(window).height())
 			}
-			
+
 			$('#menu-trigger').click(function(){
-				$('.hello_board').slideToggle();
+				var _this = $(this);
+				$('.big_nav').slideToggle();
+				if(_this.attr("statu") == 0){
+					
+				}else{
+
+				}
 			});
 			
 			$('#scroll_top_btn').click(function(){
 				$('html,body').animate({scrollTop:0},'slow');
 			})
+
+			//add blog aside nav
+			$(".blog_content h2").each(function(){
+				var _this = $(this);
+				var index = _this.index();
+				_this.attr("id","arch"+index);
+
+				$("#blog_nav ul").append('<li><a href=#'+_this.attr("id")+'>'+_this.text()+'</a></li>')
+			})
+
+			$(window).scroll(function(){
+				var offset_right = $(window).width() - $(".blog").width()
+				if( $("#blog_nav").length != 0 && $(document).scrollTop() >= $("#blog_nav").offset().top){
+					$("#blog_nav").css({"position":"fixed","top":"0","right":offset_right / 2});
+				}
+				if($("#blog_nav").length != 0 && $(document).scrollTop() < 465){
+					$("#blog_nav").css({"position":"static"});
+				}
+			});
+
+			$('.blog_content').scrollspy({ target: '#blog_nav' })
 		})
 	</script>
 </body>

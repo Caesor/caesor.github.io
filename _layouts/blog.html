@@ -1,24 +1,25 @@
 ---
 layout: template
 ---
-<section class="blog_layout"">
-	<aritcle class="content_part_left">	
-		<section class="blog_info">
-			<ul class="pub_time"><i class="fa fa-calendar"></i><li>{{ page.date | date: '%y-%m-%d' }}</li></ul>
-			<ul class="blog_category">
-				<i class="fa fa-folder-open-o"></i>
-				{% for category in page.categories %}
-				<li>{{ category }}</li>
-				{% endfor %}
-			</ul>
-			<ul class="blog_tag">
-				<i class="fa fa-tags"></i>
-				{% for tag in page.tags %}
-				<li class="{{ tag }}">{{ tag }}</li>
-				{% endfor %}
-			</ul>
-		</section>
-		<section class="blog_content">
+<aritcle class="blog">	
+	<h1 class="blog_title">{{ page.title }}</h1>
+	<section class="blog_info">
+		<ul class="pub_time"><i class="fa fa-calendar"></i><li>{{ page.date | date: '%y-%m-%d' }}</li></ul>
+		<ul class="blog_category">
+			<i class="fa fa-folder-open-o"></i>
+			{% for category in page.categories %}
+			<li>{{ category }}</li>
+			{% endfor %}
+		</ul>
+		<ul class="blog_tag">
+			<i class="fa fa-tags"></i>
+			{% for tag in page.tags %}
+			<li class="{{ tag }}">{{ tag }}</li>
+			{% endfor %}
+		</ul>
+	</section>
+	<section class="special_box">
+		<section class="blog_content" data-spy="scroll" data-target="#blog_nav" data-offset="0">
 			{{ content }}
 			<ul class="pagination">
 				{% if page.previous %}
@@ -30,22 +31,26 @@ layout: template
 				{% endif %}
 			</ul>
 		</section>
-		<p class="cross_line"></p>
-		<!-- Disqus start -->
-		<div id="disqus_thread"></div>
-		<script type="text/javascript">
-			/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-			var disqus_shortname = 'caesor'; // required: replace example with your forum shortname
+		<aside id="blog_nav">
+			<ul></ul>
+		</aside>
+	</section>
+</aritcle>
 
-			/* * * DON'T EDIT BELOW THIS LINE * * */
-			(function() {
-				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-			})();
-		</script>
-		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-		<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-		<!-- Disqus end -->
-	</aritcle>
-</section>
+<p class="cross_line"></p>
+<!-- Disqus start -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+	var disqus_shortname = 'caesor'; // required: replace example with your forum shortname
+
+	/* * * DON'T EDIT BELOW THIS LINE * * */
+	(function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<!-- Disqus end -->
