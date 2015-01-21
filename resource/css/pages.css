@@ -61,9 +61,10 @@
 .resume_part h2{font-size: 20px;line-height: 36px;}
 .resume_part h3{font-size: 16px;line-height: 36px;}
 .resume_part ul{margin-left: 35px;color:#747474;}
-.resume_part ul a{color:#0069d6;}
-.resume_part ul a:hover {color: #00438a;text-decoration: underline;}
+.resume_part ul a{color:#6FA33E;}
+.resume_part ul a:hover {color: #4A6C29;text-decoration: underline;}
 .resume_part ul li{list-style-type:disc;}
+.resume_part .marked{color: #E05E5E;}
 
 @media screen and (max-width: 800px){
 	.article_list ul{margin-left: 0;}
