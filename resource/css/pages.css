@@ -12,16 +12,16 @@
 .blog_content{width:75%;float: left;position: relative;}
 #blog_nav{width:200px;float: right;max-width: 200px;}
 .blog_title{padding:20px 0;font-size: 28px;line-height: 30px;border-bottom: 1px solid #C8C8C8;}
-.blog_info{padding: 10px 0;color:#00438a;}
+.blog_info{padding: 10px 0;color:#AB794E;}
 .blog_info ul{display:inline-block;margin-right:20px;}
 .blog_info ul li{display:inline-block;padding-left:10px;}
-.blog_content h2{font-size:20px;font-weight:800;color: #2576D0;padding: 5px 0;line-height:30px;margin: 5px 0;border-bottom: 1px solid #eee;}
+.blog_content h2{font-size:20px;font-weight:800;color: #5EAFD8;padding: 5px 0;line-height:30px;margin: 5px 0;border-bottom: 1px solid #eee;}
 .blog_content p{margin: 10px 0;}
 .blog_content img{max-width:90%;max-height: 350px;}
 .blog_content .pagination{display: inline-block;padding-left: 0;margin: 20px 0;border-radius: 4px;}
 .blog_content .pagination li{float: left;padding: 5px 10px;border: 1px solid #eee;}
 .blog_content .pagination li:hover{cursor: pointer;background: #fafafa;}
-.blog_content .pagination li a{text-decoration: none;}
+.blog_content .pagination li a{text-decoration: none;color:#E05E5E;}
 #blog_nav h3{text-align:center;}
 #blog_nav ul{margin:10px 0;padding-left: 20px;}
 #blog_nav li{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}

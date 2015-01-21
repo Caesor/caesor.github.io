@@ -1,7 +1,7 @@
 .bg{background-color: #fff;position:relative;background-image: url(/resource/image/bg.png);}
 header ul, .wall{max-width:880px;width:82%;}
 header{width: 100%; font-size: 14px;margin:0 auto;overflow: hidden;max-width: 900px;height: 300px;padding-top: 50px;}
-header .logo_text{line-height: 50px;font-size: 70px;position: relative;padding: 50px;}
+header .logo_text{font-family: cursive;line-height: 50px;font-size: 70px;position: relative;padding: 50px;}
 header .logo_img{background:url(/resource/image/logo.png);background-size: cover;width: 300px;height: 300px;position: absolute;right: 0;top: 0;}
 header .logo_img img{width: 100%;}
 header nav.big_nav{width: 100%;}
@@ -28,7 +28,7 @@ header .my_info{font-family: cursive;font-size:40px; color:#fff;margin:10px 0;}*
 
 
 .wall{margin: 0 auto;color:#303030;overflow: hidden;}
-.wall a{color:#0069d6;}
+.wall a{color:#2A9ABB;}
 .wall a:hover{color:#00438a;}
 .post_list a{transition:all .3s ease-in;}
 
@@ -51,6 +51,7 @@ footer{width: 100%;text-align:center;color:#858585;line-height:80px;}
 	header ul{width:100%;te}
 	header ul li{float:none; display:block;border-bottom:1px solid #0e0e0e;}
 	header ul li a{width: 100%;padding: 0;height: 45px; line-height: 45px;color:#fff;}
+	header ul li a:hover{background: #2D2D2D;color:#fff;}
 	header ul li.selected a{background: #2D2D2D;}
 	.small_nav{display:block;}
 	header .my_info{font-size:30px;}
