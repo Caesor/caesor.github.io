@@ -1,7 +1,7 @@
 .bg{background-color: #fff;position:relative;background-image: url(/resource/image/bg.png);}
 header ul, .wall{max-width:880px;width:82%;}
 header{width: 100%; font-size: 14px;margin:0 auto;overflow: hidden;max-width: 900px;height: 300px;padding-top: 50px;}
-header .logo_text{font-family: cursive;line-height: 50px;font-size: 70px;position: relative;padding: 50px;}
+header .logo_text{font-family: 'chinese';line-height: 50px;font-size: 70px;position: relative;padding: 50px;}
 header .logo_img{background:url(/resource/image/logo.png);background-size: cover;width: 300px;height: 300px;position: absolute;right: 0;top: 0;}
 header .logo_img img{width: 100%;}
 header nav.big_nav{width: 100%;}
@@ -36,6 +36,11 @@ header .my_info{font-family: cursive;font-size:40px; color:#fff;margin:10px 0;}*
 .btn_bg{background:#000;opacity:0.6;width:40px;height:40px;position:absolute; top:0;left:0;z-index:-10;border-radius:5px;}
 
 footer{width: 100%;text-align:center;color:#858585;line-height:80px;}
+
+@font-face {
+	font-family: 'chinese';
+	src: url('/resource/font/chinese.ttf');
+}
 
 @media screen and (max-width: 1000px){
 	#blog_nav{display: none;}
