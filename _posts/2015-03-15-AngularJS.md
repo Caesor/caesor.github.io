@@ -45,3 +45,5 @@ tag: AngularJS
 
 ###Controller
 1、避免使用函数表达式
+
+##分页——Paging
