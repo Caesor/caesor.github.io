@@ -18,6 +18,21 @@ tags: javascript
 5.在需要经常取那些引起浏览器重排的属性值时，要缓存到变量。
 在最近几次面试中比较常问的一个问题：在前端如何实现一个表格的排序。如果应聘者的方案中考虑到了如何减少重绘和重排的影响，将是使人满意的方案。
 
+###缓存选择器查询结果
+每次DOM选择都要计算，缓存它
+```
+//这样的写法就是糟糕的写法
+jQuery('#top').find('p.classA');
+jQuery('#top').find('p.classB');
+//更好的写法是
+var cached = jQuery('#top'); 
+cached.find('p.classA'); 
+cached.find('p.classB');
+```
+
+###缓存列表.length
+每次.length都要计算，用一个变量保存这个值
+
 ##Javascript
 
 ###关于script
@@ -79,3 +94,14 @@ function loadScript(url ,callback){
 当一个页面存在大量的元素，并且很多元素都有一个或多个事件绑定的时候，会影响页面的性能，这时候使用事件托管监听最近接这些元素的父级即可。
 
 原理：事件冒泡
+
+##相关文章
+[移动HTML5前端性能优化指南](http://segmentfault.com/a/1190000002511921)
+
+[高性能HTML](http://www.alloyteam.com/2012/10/high-performance-html/)
+
+[高性能CSS](http://www.alloyteam.com/2012/10/high-performance-css/)
+
+[高性能]()
+
+[]
