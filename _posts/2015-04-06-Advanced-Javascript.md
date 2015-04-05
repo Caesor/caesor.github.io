@@ -99,9 +99,3 @@ function loadScript(url ,callback){
 [移动HTML5前端性能优化指南](http://segmentfault.com/a/1190000002511921)
 
 [高性能HTML](http://www.alloyteam.com/2012/10/high-performance-html/)
-
-[高性能CSS](http://www.alloyteam.com/2012/10/high-performance-css/)
-
-[高性能]()
-
-[]
