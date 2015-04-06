@@ -1,45 +1,47 @@
 ---
 layout: template
 ---
-<aritcle class="blog">	
-	<h1 class="blog_title">{{ page.title }}</h1>
-	<section class="blog_info">
-		<ul class="pub_time"><i class="fa fa-calendar"></i><li>{{ page.date | date: '%y-%m-%d' }}</li></ul>
-		<ul class="blog_category">
-			<i class="fa fa-folder-open-o"></i>
-			{% for category in page.categories %}
-			<li>{{ category }}</li>
-			{% endfor %}
-		</ul>
-		<ul class="blog_tag">
-			<i class="fa fa-tags"></i>
-			{% for tag in page.tags %}
-			<li class="{{ tag }}">{{ tag }}</li>
-			{% endfor %}
-		</ul>
-	</section>
-	<section class="special_box">
-		<section class="blog_content" data-spy="scroll" data-target="#blog_nav" data-offset="0">
-			{{ content }}
-			<ul class="pagination">
-				{% if page.previous %}
-				  <li class="prev"><a href="{{ baseurl }}{{ page.previous.url }}" title="{{ page.previous.title }}">&laquo; Previous</a></li>
-				{% endif %}
-				  <li><a href="{{ site.baseurl }}/">Archive</a></li>
-				{% if page.next %}
-				  <li class="next"><a href="{{ baseurl }}{{ page.next.url }}" title="{{ page.next.title }}">Next &raquo;</a></li>
-				{% endif %}
+<section class="blog_block">
+	<aritcle class="blog">	
+		<h1 class="blog_title">{{ page.title }}</h1>
+		<section class="blog_info">
+			<ul class="pub_time"><i class="fa fa-calendar"></i><li>{{ page.date | date: '%y-%m-%d' }}</li></ul>
+			<ul class="blog_category">
+				<i class="fa fa-folder-open-o"></i>
+				{% for category in page.categories %}
+				<li>{{ category }}</li>
+				{% endfor %}
+			</ul>
+			<ul class="blog_tag">
+				<i class="fa fa-tags"></i>
+				{% for tag in page.tags %}
+				<li class="{{ tag }}">{{ tag }}</li>
+				{% endfor %}
 			</ul>
 		</section>
-		<aside id="blog_nav">
-			<ul></ul>
-		</aside>
-	</section>
-</aritcle>
+		<section class="special_box">
+			<section class="blog_content" data-spy="scroll" data-target="#blog_nav" data-offset="0">
+				{{ content }}
+				<ul class="pagination">
+					{% if page.previous %}
+					  <li class="prev"><a href="{{ baseurl }}{{ page.previous.url }}" title="{{ page.previous.title }}">&laquo; Previous</a></li>
+					{% endif %}
+					  <li><a href="{{ site.baseurl }}/">Archive</a></li>
+					{% if page.next %}
+					  <li class="next"><a href="{{ baseurl }}{{ page.next.url }}" title="{{ page.next.title }}">Next &raquo;</a></li>
+					{% endif %}
+				</ul>
+			</section>
+			<aside id="blog_nav">
+				<ul></ul>
+			</aside>
+		</section>
+	</aritcle>
 
-<p class="cross_line"></p>
-<!-- Disqus start -->
-<div id="disqus_thread"></div>
+	<p class="cross_line"></p>
+	<!-- Disqus start -->
+	<div id="disqus_thread"></div>
+</section>
 <script type="text/javascript">
 	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 	var disqus_shortname = 'caesor'; // required: replace example with your forum shortname
