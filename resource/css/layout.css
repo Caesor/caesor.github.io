@@ -27,7 +27,7 @@ header .my_info{font-family: cursive;font-size:40px; color:#fff;margin:10px 0;}*
 #menu-trigger{font-size: 28px;color: #fff;cursor: pointer;padding: 0 4px;margin:0 5px;line-height: 45px;}
 
 
-.wall{margin: 0 auto;color:#303030;background: #f2f2f2;overflow: hidden;}
+.wall{margin: 0 auto;color:#303030;overflow: hidden;}
 .wall a{color:#2A9ABB;}
 .wall a:hover{color:#00438a;}
 .post_list a{transition:all .3s ease-in;}

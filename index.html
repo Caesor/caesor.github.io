@@ -3,7 +3,7 @@ layout: template
 title: Archive
 ---
 <!--<h1 class="post_title">Newest article</h1>-->
-<section class="article_list blog_block">
+<section class="article_list">
 	<ul>
 		{% for post in site.posts %}
 		  <li><span class="index_blog_date">{{ post.date | date_to_string }}</span> > <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
