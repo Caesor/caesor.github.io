@@ -69,7 +69,7 @@
 .resume_part ul li{list-style-type:disc;}
 .resume_part .marked{color: #E05E5E;}
 
-@media (-webkit-min-device-pixel-ratio: 2){
+@media (-webkit-min-device-pixel-ratio: 2) and (max-width: 500px){
 	.article_list{font-size: 10px; line-height: 18px;}
 }
 
