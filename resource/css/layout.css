@@ -49,7 +49,7 @@ footer{width: 100%;text-align:center;color:#858585;line-height:80px;}
 @media screen and (max-width: 680px){
 	header{height: auto;}
 	header .big_nav{display:none}
-	header .logo_text{font-size: 40px;}
+	header .logo_text{font-size: 50px;}
 	header .logo_img{width: 150px;height: 150px}
 	header .head_pic_border{width:80px; height:80px; border-radius: 40px;}
 	header nav.big_nav{position:fixed;top:45px;opacity:0.8;background: #000;z-index: 100;}
