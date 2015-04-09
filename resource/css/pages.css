@@ -69,8 +69,11 @@
 .resume_part ul li{list-style-type:disc;}
 .resume_part .marked{color: #E05E5E;}
 
-@media screen and (max-width: 800px){
+@media (-webkit-min-device-pixel-ratio: 2){
 	.article_list{font-size: 10px; line-height: 18px;}
+}
+
+@media screen and (max-width: 800px){
 	.article_list ul{margin-left: 0;}
 	.resume_part ul{margin-left: 15px;}
 	.post_title{margin: 10px 0 10px;}
