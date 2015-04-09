@@ -2,7 +2,7 @@
 .displayNone{display:none;}
 
 /* blog list */
-.article_list{width: 800px;margin: 0 auto;}
+.article_list{width: 800px;margin: 0 auto; font-size: 14px;}
 .article_list ul{margin-left: 35px;}
 .article_list ul li{list-style-type:disc;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
 
