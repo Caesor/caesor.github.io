@@ -70,7 +70,7 @@
 .resume_part .marked{color: #E05E5E;}
 
 @media screen and (max-width: 800px){
-	.article_list{font-size: 8px;}
+	.article_list{font-size: 10px; line-height: 18px;}
 	.article_list ul{margin-left: 0;}
 	.resume_part ul{margin-left: 15px;}
 	.post_title{margin: 10px 0 10px;}
