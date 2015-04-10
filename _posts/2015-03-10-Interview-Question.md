@@ -285,7 +285,7 @@ var object = {
     scope:"local",
     getScope:function(){
         return function(){
-            return _this.scope;
+            return this.scope;
         }
     }
 }
@@ -321,7 +321,6 @@ Thing.prototype.logName = function(){
 	doIt();	// golobal
 	doIt.apply(this);	// local
 }
-
 var thing = new Thing();
 thing.logName();
 ```
@@ -473,8 +472,37 @@ touchstart --> touchmove -> touchend --》click
 
 [鑫空间](http://www.zhangxinxu.com/wordpress/2012/04/js-dom%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6/)
 
+###跨浏览器事件对象
+```
+var EventUtil = {
+	getEvent: function(event){
+		return event ? event : window.event;
+	},
+	getTarget: function(event){
+		return event.target || event.srcElement;
+	},
+	// 阻止默认行为
+	preventDefault: function(event){
+		if( event.preventDefault ){
+			event.preventDefault();
+		}else{	// IE
+			event.returnValue = false;
+		}
+	},
+	// 阻止事件冒泡
+	stopPropagation: function(event){
+		if( event.stopPropagation ){	//
+			event.stopPropagation();
+		}else{	// IE
+			event.cancelBubble = true;
+		}
+	}
+}
+```
+
 ###跨浏览器事件处理
 ```
+
 var EventUtil = {
 	addHandler: function(element, type, handler){
 		if( element.addEventListener){	// 非IE DOM 2级
