@@ -502,7 +502,6 @@ var EventUtil = {
 
 ###跨浏览器事件处理
 ```
-
 var EventUtil = {
 	addHandler: function(element, type, handler){
 		if( element.addEventListener){	// 非IE DOM 2级
