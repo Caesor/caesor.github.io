@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: 2015前端面试题汇总
+title: 2015前端面试题汇总（持续更新中）
 categories: font-end
 tag: javascript
 ---
@@ -166,6 +166,40 @@ doItIndirectly(thing.logFoo.bind(thing)); //logs bar
 ```
 
 注：javascript对象所有属性都是公开的（public）， 没有私有（private）。 
+
+##callee & caller
+
+###callee
+返回正被执行的 Function 对象，也就是所指定的 Function 对象的正文。
+
+callee 属性是 arguments 对象的一个成员，它表示对函数对象本身的引用，这有利于匿 函数的递归或者保证函数的封装性
+
+常见用法：
+
+arguments.length 是实参长度,	arguments.callee.length 是形参长度
+
+###caller
+返回一个对函数的引用，即调用了当前函数的函数体。
+
+对于函数来说，caller 属性只有在函数执行时才有定义。 
+
+如果函数是由 javascript 程序的**顶层**调用的，那么 caller 包含的就是 null 。
+
+如果在**字符串上下文**中使用 caller 属性，那么结果和 functionName.toString 一样，也就是说，显示的是函数的反编译文本。
+```
+function CallLevel(){
+	if( CallLevel.caller == null ){
+		console.log("CallLevel was called from the top level.")
+	}else{
+		console.log("CallLevel was called by another function:\n" + CallLevel.caller);
+	}
+}
+function funCaller(){
+	CallLevel();
+}
+CallLevel();	// null
+funCaller();	// funCaller()
+```
 
 ##作用域
 1、内部环境可以通过作用域链访问所有的外部环境，但外部环境不能访问内部环境中的任何变量和函数。
