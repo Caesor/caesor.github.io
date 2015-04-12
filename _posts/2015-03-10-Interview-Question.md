@@ -394,7 +394,7 @@ function bindEvent(){
 
 [阮一峰-学习Javascript闭包](http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html)
 
-##模块模式——模拟块级作用域
+##模拟块级作用域
 使用闭包来定义公共函数，可以访问私有函数和变量
 ```javascript
 var Counter = (function(){
@@ -427,7 +427,7 @@ alert(Counter.value());	// 1
 ##类和继承
 注意： `new`会调用一个构造函数， `Object.create`没有调用构造函数
 
-###prototype 和 __prototype__的区别
+###prototype 和 __proto__ 的区别
 父原型可以通过 __proto__ 进行访问
 ```
 function Person(){}
@@ -506,7 +506,23 @@ touchstart --> touchmove -> touchend --》click
 
 [鑫空间](http://www.zhangxinxu.com/wordpress/2012/04/js-dom%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6/)
 
+###事件类型
+event.type: 
+
 ###跨浏览器事件对象
+在事件处理程序内部， `this` 始终等于 `currentTarget` 的值， `target` 只包含事件的实际目标。
+
+1、如果事件处理程序指定给了**目标元素**,那么 this == currentTarget == target
+
+2、如果**事件处理程序存在于父节点中**，那么 
+```
+document.body.onclick = function(event){
+	console.log(currentTarget == document.body);	// true 
+	console.log(this == document.body);	// true
+	console.log(event.target == document.getElementById("myBtn"));	// true
+}
+```
+
 ```
 var EventUtil = {
 	getEvent: function(event){
@@ -540,10 +556,10 @@ var EventUtil = {
 	addHandler: function(element, type, handler){
 		if( element.addEventListener){	// 非IE DOM 2级
 			element.addEventLister(type, handler, false);
-		}else{	// IE DOM 2级
+		}else if(element.attachEvent){	// IE DOM 2级
 			element.attachEvent("on" + type, handler);
 		}else{	// DOM 0级
-			element["on" + type] = handler; // btn.onclick
+			element["on" + type] = handler; // btn.onclick, 属性通过数组来访问！
 		}
 	},
 	removeHandler: function(element, type, handler){
@@ -567,8 +583,8 @@ var EventUtil = {
 ```javascript
 var list = document.getElementById("myLinks");
 EventUtil.addHandler(list, "click", function(event){
-	event = EventUtil.getEvent(event);
-	var target = EventUtil.getTarget(event);
+	event = EventUtil.getEvent(event);	// event || window.event
+	var target = EventUtil.getTarget(event);	// event.target || event.srcElement
 	switch(target.id){
 		case "doSomething":
 			document.title = "I changed the document's title";
@@ -783,3 +799,7 @@ box{color:red !important;} 	// ie 7/8/FF
 
 img、input 是替换元素；替换元素一般有内在尺寸，所以具有width和height，可以设定。例如你不指定img的width和height时，就按其内在尺寸显示，也就是图片被保存的时候的宽度和高度。
 对于表单元素，浏览器也有默认的样式，包括宽度和高度。
+
+##参考文章
+
+[HTML head头标签](<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">)
