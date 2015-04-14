@@ -69,10 +69,17 @@
 .resume_part ul li{list-style-type:disc;}
 .resume_part .marked{color: #E05E5E;}
 
+/* iphone 6 */
 @media (min-device-width : 375px) and (max-device-width : 667px) and (-webkit-min-device-pixel-ratio : 2){
 	.article_list{font-size: 10px; line-height: 18px;}
 }
 
+/* iphone 6 plus */
+@media (min-device-width : 414px) and (max-device-width : 736px) and (-webkit-min-device-pixel-ratio : 3){
+	.article_list{font-size: 12px; line-height: 20px;}   
+}
+
+/* Common mobile */
 @media screen and (max-width: 800px){
 	.article_list ul{margin-left: 0;}
 	.resume_part ul{margin-left: 15px;}
