@@ -2,7 +2,7 @@
 layout: blog
 title: 谈谈 AngularJS 中的 ng-class
 categories: font-end
-tags: angular javascript
+tags: angular
 ---
 初学 AngularJS 总是对其中的一些细枝末节不适应，可能是因为太适应 jquery了吧，现在这里将 `ng-class` 的使用总结一下
 

@@ -2,7 +2,7 @@
 layout: blog
 title: AngularJS学记笔记
 categories: font-end
-tag: AngularJS
+tag: angular
 ---
 ##一些非常好的资源
 [AngularJS Book](https://github.com/peiransun/angularjs-cn)
