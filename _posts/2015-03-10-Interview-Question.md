@@ -609,6 +609,19 @@ Ajax是Asynchronous JavaScript and XML的缩写。
 在非Ajax请求中，用户触发一个HTTP请求到服务器,服务器对其进行处理后再返回一个新的HTML页到客户端, 每当服务器处理客户端提交的请求时,客户都只能**空闲等待**,并且哪怕只是一次很小的交互、只需从服务器端得到很简单的一个数据,都要返回一个完整的HTML页,而用户每次都要浪费时间和带宽去重新读取整个页面.
 
 Ajax,通过XmlHttpRequest对象来向服务器发异步请求,从服务器获得数据，然后用javascript来操作DOM而更新页面。
+
+XMLHttpRequest的5种状态
+
+0：XMLHttpRequest 对象还没有完成初始化
+
+1：XMLHttpRequest 对象开始发送请求
+
+2：XMLHttpRequest 对象的请求发送完成
+
+3：XMLHttpRequest 对象开始读取服务器响应
+
+4：XMLHttpRequest 对象读取服务器响应结束
+
 ```
 var xmlhttp;
 if(window.XMLHttpRequest){
@@ -804,6 +817,13 @@ img、input 是替换元素；替换元素一般有内在尺寸，所以具有wi
 `getElementById`返回的是当前HTML元素，`$("#id")`返回的是一个对象数组
 
 实际上 `$("#id")[0] == getElementById`
+
+##网页重构
+1、使用马克曼量取精准尺寸（标注：尺寸、颜色）；
+
+2、使用photoshop自动切图脚本，自动切图；
+
+3、使用腾讯 alloydesign 像素级对比设计稿（超高还原度）
 
 ##参考文章
 
