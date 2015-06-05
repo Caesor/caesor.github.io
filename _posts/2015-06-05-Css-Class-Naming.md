@@ -67,6 +67,24 @@ btn-default_type2 {}
 ```
 公有样式我们可以嵌套用，堆叠用，但是不要单独用！
 
+##面向属性的命名
+我们习惯在CSS命名的时候掺杂属性，这样可以让代码更易懂，但是语义其实对自身也是一种舒服，越是语义强烈的命名越是没有重用性。
+比如：
+```
+<div class="side-item-header"></div>
+```
+这时我们发现页面中间有个标题样式也是一样的，我们难道要使用一样的类名？
+
+课件明明不合理会大大限制CSS的冲永兴。如何命名才能让CSS发挥最大的重用性潜力呢？**面向属性的命名**!
+比如：
+```css
+f_12px {font-size:12px;}
+c_Green {color:#0aac02;}
+a_Gray:link{color:#666;}
+blank24{height24px; overflow:hidden;}
+i_Btn_base {display:inline-block;background-color:@btn-bg-main; color:@btn-color;height:32px;}
+```
+
 ##关于命名空间
 如果我们采用了多个库，我们会发现命名空间的好处。
 比如YUI中的 yui, Pure 中的 pure, Amaze 中的 am, 都是为了
@@ -78,6 +96,26 @@ btn-default_type2 {}
 3、使用第三方服务插件时产生干扰
 
 4、自己编写的CSS意外覆盖框架
+
+##精简高效CSS命名之”三无原则“
+**无ID、无层级、无标签**
+
+CSS就应该最简单，最直接，直捣黄龙。有三大原因：
+
+1、限制重用
+
+2、CSS文件大小（过长的选择器层级）
+
+3、降低了渲染效率（CSS的渲染方式是”从右往左“渲染的，层级越多，渲染的开销也就越大）
+例如：
+```
+<div id="test">
+	<ul class="test"></ul>
+</div>
+//#test .test{}, ul.test{}, #test ul{} 和 .test{} 哪种写法渲染速度最快？
+```
+.test {} 的渲染速度是最快的（”从右往左“渲染），javascript获取最快的当然是 #test ul{}了，因为 getElementById 和 getElementByTagName 都是JS内置的方法。
+
 
 ##扯点别的
 对于一个项目，我们可以将样式分别存储在多个文件中。多个文件能够更好的管理公用样式和组件。
@@ -96,3 +134,5 @@ main.css 	/* All your self */
 [http://amazeui.org/css](http://amazeui.org/css)
 
 [normalize.css](http://necolas.github.io/normalize.css/)
+
+[精简高效的CSS命名准则/方法](http://www.zhangxinxu.com/wordpress/2010/09/%E7%B2%BE%E7%AE%80%E9%AB%98%E6%95%88%E7%9A%84css%E5%91%BD%E5%90%8D%E5%87%86%E5%88%99%E6%96%B9%E6%B3%95/)
