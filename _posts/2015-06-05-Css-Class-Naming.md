@@ -75,7 +75,7 @@ btn-default_type2 {}
 ```
 这时我们发现页面中间有个标题样式也是一样的，我们难道要使用一样的类名？
 
-课件明明不合理会大大限制CSS的冲永兴。如何命名才能让CSS发挥最大的重用性潜力呢？**面向属性的命名**!
+可见命名不合理会大大限制CSS的重用性。如何命名才能让CSS发挥最大的重用性潜力呢？答案是：**面向属性的命名**!
 比如：
 ```css
 f_12px {font-size:12px;}
@@ -97,7 +97,7 @@ i_Btn_base {display:inline-block;background-color:@btn-bg-main; color:@btn-color
 
 4、自己编写的CSS意外覆盖框架
 
-##精简高效CSS命名之”三无原则“
+##精简高效CSS命名之“三无原则”
 **无ID、无层级、无标签**
 
 CSS就应该最简单，最直接，直捣黄龙。有三大原因：
@@ -115,7 +115,6 @@ CSS就应该最简单，最直接，直捣黄龙。有三大原因：
 //#test .test{}, ul.test{}, #test ul{} 和 .test{} 哪种写法渲染速度最快？
 ```
 .test {} 的渲染速度是最快的（”从右往左“渲染），javascript获取最快的当然是 #test ul{}了，因为 getElementById 和 getElementByTagName 都是JS内置的方法。
-
 
 ##扯点别的
 对于一个项目，我们可以将样式分别存储在多个文件中。多个文件能够更好的管理公用样式和组件。
