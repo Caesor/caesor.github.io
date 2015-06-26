@@ -24,7 +24,7 @@
 	<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/resource/css/pages.css">
 	<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/resource/google-code-prettify/prettify.css">
 </head>
-<body class="bg">
+<body>
 	<header>
 		<h1 class="logo_text">水墨中国<section class="logo_img"></section></h1>
 		<nav class="big_nav">
@@ -90,10 +90,6 @@
 					$(this).parent().addClass('selected');
 				}
 			})
-			// stretch the background wall to the whole screen
-			if( $('body').height() < $(window).height()){
-				$('.bg').height($(window).height())
-			}
 
 			$('#menu-trigger').click(function(){
 				var _this = $(this);

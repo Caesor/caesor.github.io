@@ -2,8 +2,8 @@
 	font-family: chinese;
 	src: url(/resource/font/chinese.ttf);
 }
-
-.bg{background-color: #f2f2f2;position:relative;background-image: url(/resource/image/bg.png);}
+html{background-image: url(/resource/image/bg.png);}
+body{position:relative;}
 header ul, .wall{max-width:880px;width:82%;}
 header{width: 100%; font-size: 14px;margin:0 auto;overflow: hidden;max-width: 900px;height: 300px;padding-top: 50px;}
 header .logo_text{font-family: chinese, cursive;line-height: 50px;font-size: 70px;position: relative;padding: 50px;}
@@ -16,16 +16,6 @@ header ul li a{color:#000;display:block;height:70px;width: 70px;line-height: 80p
 header ul li a:hover{color:#000;text-decoration:none;}
 header ul li.selected a{color:#fff;background-image: url(/resource/image/nav_bg.png);background-size: 100% 100%;}
 
-/* blackboard 
-header .hello_board{width:100%;text-align:center;padding: 80px 0 20px 0;}
-header .head_pic_border{width:120px; height:120px; border-radius: 60px;overflow: hidden;margin:0 auto;border: 3px solid #eee;transition: .3s ease;}
-header .head_pic_border img{width:100%;}
-header .head_pic_border:hover{
-	-webkit-transform: rotate(360deg) scale(1.1);
-	-ms-transform: rotate(360deg) scale(1.1);
-	transform: rotate(360deg) scale(1.1);
-}
-header .my_info{font-family: cursive;font-size:40px; color:#fff;margin:10px 0;}*/
 /* menu button */
 .small_nav{width:100%;position:fixed; top:0;text-align:right;display:none;z-index: 1000;background: #181818;}
 .small_nav h3{color: #fff;font-size: 18px; font-family: cursive;float: left;line-height: 45px;margin-left: 20px;font-weight: 100;}
