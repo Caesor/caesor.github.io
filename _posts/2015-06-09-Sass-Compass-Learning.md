@@ -174,6 +174,15 @@ http_images_dir = "imgs"
 #bottom{background-image: image-url("head.png");}
 ```
 
+###输出样式
+**（开发推荐）**:expanded // 正常
+
+:nested // 层次嵌套式
+
+:compact // 每个选择器压缩至单行显示
+
+**（部署推荐）**:compressed // 压缩
+
 ##高性能样式表
 1、会比使用带有服务器端@Import 的 HTTP请求
 
