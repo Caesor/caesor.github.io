@@ -712,11 +712,17 @@ document.domain = 'a.com';
 
 400   Bad Request（错误请求）
 
+401   Unauthorized（未授权）
+
+403   Forbidden（禁止）
+
 404   (请求失败)，请求所希望得到的资源未被在服务器上发现。
 
 408   Request Timeout（请求超时）
 
 **5xx（服务器错误）**
+
+500   Internal Server Error
 
 503   (服务不可用)
 
@@ -825,6 +831,48 @@ img、input 是替换元素；替换元素一般有内在尺寸，所以具有wi
 
 3、使用腾讯 alloydesign 像素级对比设计稿（超高还原度）
 
+##判断一个对象是不是数组
+
+1、对function , String, Number , Undefined 等几种类型的对象来说，完全可以胜任，对于Array
+`typeof(arr) == object`
+
+2、javascript中 instancedof 会返回一个boolean 值。
+`arr instanceof Array == true`
+
+3、
+```
+function isArray(obj){
+	return Object.prototype.toString.call(obj) === '[object Array]';
+}
+```
+
+##写一个input实时请求加载
+```
+function showResult(str) {
+  if (str.length==0) { 
+    document.getElementById("livesearch").innerHTML="";
+    return;
+  }
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else {  // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("livesearch").innerHTML=xmlhttp.responseText;
+    }
+  }
+  xmlhttp.open("GET","livesearch.php?q="+str,true);
+  xmlhttp.send();
+}
+
+<form>
+<input type="text" size="30" onkeyup="showResult(this.value)">
+<div id="livesearch"></div>
+</form>
+```
 ##参考文章
 
 [HTML head头标签](<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">)
