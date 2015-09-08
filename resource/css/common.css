@@ -35,3 +35,7 @@ a:hover {color:#d00;text-decoration:underline;}
 
 
 #wrap {position:relative;width:100%;max-width:1920px;min-width:1000px;_width:expression((document.documentElement.clientWidth>1920||document.body.clientWidth>1920)?"1920px":((document.documentElement.clientWidth<1000||document.body.clientWidth<1000)?"1000px":"100%"));height:auto;overflow:hidden;padding-top:53px;margin:0 auto;}
+
+.coffeescript .javascript, .javascript .xml, .tex .hljs-formula, .xml .javascript, .xml .vbscript, .xml .css, .xml .hljs-cdata, .xml .php, .php .xml {
+     opacity: 1; 
+}
