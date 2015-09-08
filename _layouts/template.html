@@ -22,7 +22,7 @@
 	<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/resource/css/common.css">
 	<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/resource/css/layout.css">
 	<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/resource/css/pages.css">
-	<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/resource/google-code-prettify/prettify.css">
+	<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/resource/highlight/monokai_sublime.css">
 </head>
 <body>
 	<header>
@@ -66,10 +66,23 @@
 
 
 	<script type="text/javascript" src="{{ site.baseurl }}/resource/js/jquery-1.8.3.min.js"></script>
-	<script type="text/javascript" src="{{ site.baseurl }}/resource/bootstrap/scrollspy.js" ></script>
-	<script type="text/javascript" src="{{ site.baseurl }}/resource/google-code-prettify/prettify.js"></script>
+	<script type="text/javascript" src="{{ site.baseurl }}/resource/highlight/highlight.pack.js"></script>
 	<script type="text/javascript">
 		$(function(){
+
+			hljs.initHighlightingOnLoad();
+
+			if($('code').parent()[0].tagName != 'PRE'){
+				$('code').wrap('<pre></pre>');		
+			}
+				// if((this.parent()[0].tagName != 'pre') || (this.parent()[0].tagName != 'PRE')){
+					// $('code').wrap('<pre></pre>');		
+				// }
+			// })
+			// console.log($('code').parent()[0].tagName)
+			// if($('code').parent() != $('pre')){
+			// 	$('code').wrap('<pre></pre>');
+			// }
 
 			$(document).scroll(function(){
 				if($(document).scrollTop() > 0){
@@ -80,9 +93,6 @@
 					$('#scroll_top_btn').addClass('displayNone');
 				}
 			});
-			
-			$('code').addClass('prettyprint linenums').attr('style', 'overflow:auto');
-	        prettyPrint();
 			
 			$('header ul li').removeClass('selected');
 			$('header ul li a').each(function(){
