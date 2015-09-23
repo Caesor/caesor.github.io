@@ -50,23 +50,23 @@ getComputedStyle() (currentStyle in IE)。
 开发中，比较好的实践是尽量减少重排次数和缩小重排的影响范围。例如：
 
 1.将多次改变样式属性的操作合并成一次操作。例如，
-```javascript
-var changeDiv = document.getElementById(‘changeDiv’);
-changeDiv.style.color = ‘#093′;
-changeDiv.style.background = ‘#eee';
-changeDiv.style.height = ‘200px';
-```
+
+    var changeDiv = document.getElementById(‘changeDiv’);
+    changeDiv.style.color = ‘#093′;
+    changeDiv.style.background = ‘#eee';
+    changeDiv.style.height = ‘200px';
+
 可以合并为：
-```
-//CSS
-div.changeDiv {
-background: #eee;
-color: #093;
-height: 200px;
-}
-//JS
-document.getElementById(‘changeDiv’).className = ‘changeDiv';
-```
+
+    //CSS
+    div.changeDiv {
+    background: #eee;
+    color: #093;
+    height: 200px;
+    }
+    //JS
+    document.getElementById(‘changeDiv’).className = ‘changeDiv';
+
 
 2.将需要多次重排的元素，position属性设为absolute或fixed，这样此元素就脱离了文档流，它的变化不会影响到其他元素。例如有动画效果的元素就最好设置为绝对定位。
 

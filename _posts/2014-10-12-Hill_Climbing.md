@@ -12,34 +12,34 @@ tags: algorithm
 
 **登山算法（Hill Climbing Algorithm）**： 是一个解决优化问题的局部搜索算法，通过不停地迭代从一个候选结果向另一个候选结果“移动”直到终止条件满足。
 
-`public class HC<G, X> extends OptimizationAlgorithm<G, X> {
-  public HC() {
-    super();
-  }
-  @Override
-  public Individual<G, X> solve(final IObjectiveFunction<X> f) {
-	Individual<G, X> best, pnew;
-	best = new Individual<G, X>();
-	pnew = new Individual<G, X>();
-	//随机创建候选结果best，并将其初始化为当前最优结果
-	best.g = nullary.create(this.random);
-	best.x = this.gpm.gpm(best.g);
-	//由Termination函数决定终止条件
-	while(!(this.termination.shouldTerminate())){
-	  //修改当前最优结果best，并将其传递给新的候选结果pnew
-	  pnew.g = this.unary.mutate(best.g, this.random);
-	  pnew.x = this.gpm.gpm(pnew.g);
-	  pnew.v = f.compute(pnew.x);
-	  //通过目标函数f比较修改后的pnew是否比best好一点
-	  //如果比修改前好，那么将当前其赋值给当前最优结果best
-	  if( pnew.v <= best.v){
-	  	best.assign(pnew);
-	  }
-	}
-	//返回最优结果
-	return best;
-  }
-}`
+    public class HC<G, X> extends OptimizationAlgorithm<G, X> {
+      public HC() {
+        super();
+      }
+      @Override
+      public Individual<G, X> solve(final IObjectiveFunction<X> f) {
+    	Individual<G, X> best, pnew;
+    	best = new Individual<G, X>();
+    	pnew = new Individual<G, X>();
+    	//随机创建候选结果best，并将其初始化为当前最优结果
+    	best.g = nullary.create(this.random);
+    	best.x = this.gpm.gpm(best.g);
+    	//由Termination函数决定终止条件
+    	while(!(this.termination.shouldTerminate())){
+    	  //修改当前最优结果best，并将其传递给新的候选结果pnew
+    	  pnew.g = this.unary.mutate(best.g, this.random);
+    	  pnew.x = this.gpm.gpm(pnew.g);
+    	  pnew.v = f.compute(pnew.x);
+    	  //通过目标函数f比较修改后的pnew是否比best好一点
+    	  //如果比修改前好，那么将当前其赋值给当前最优结果best
+    	  if( pnew.v <= best.v){
+    	  	best.assign(pnew);
+    	  }
+    	}
+    	//返回最优结果
+    	return best;
+      }
+    }
 
 ##登山算法存在的问题
 

@@ -12,31 +12,31 @@ tags : javascript
 
 **HTML**
 
-`<input tyle = "file" id="input_file">
-<section id="result"></section>`
+	<input tyle = "file" id="input_file">
+	<section id="result"></section>
 
 **Javascript**
 
-`var result = document.getElementById('result');
-var input = document.getElementById('input_file');
-if(typeof FileReader === 'undefined'){
-	result.innerHTML = "Sorry, your browser can't support RileReader!";
-	input.setAttribute('disabled','disabled');
-}else{
-	input.addEventListener('change', readFile, false);
-}
-function readFile(){
-	var file = this.files[0];
-	if(!/image\/w+/.test(file.type)){
-		alert("The file must be image!");
-		return false;
+	var result = document.getElementById('result');
+	var input = document.getElementById('input_file');
+	if(typeof FileReader === 'undefined'){
+		result.innerHTML = "Sorry, your browser can't support RileReader!";
+		input.setAttribute('disabled','disabled');
+	}else{
+		input.addEventListener('change', readFile, false);
 	}
-	var reader = new FileReader();
-	reader.readAsDataURL(file);
-	reader.onload = function(){
-		result.innerHTML = '<img src="' + this.result + '" alt=""/>'
+	function readFile(){
+		var file = this.files[0];
+		if(!/image\/w+/.test(file.type)){
+			alert("The file must be image!");
+			return false;
+		}
+		var reader = new FileReader();
+		reader.readAsDataURL(file);
+		reader.onload = function(){
+			result.innerHTML = '<img src="' + this.result + '" alt=""/>'
+		}
 	}
-}`
 
 **另附：FileReader的方法和事件**
 

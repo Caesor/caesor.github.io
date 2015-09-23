@@ -17,17 +17,15 @@ tag: angular
 
 ###使用javascript闭包
 
-```
-(function() {
-    'use strict';
+    (function() {
+        'use strict';
 
-    angular
-        .module('app')
-        .factory('logger', logger);
+        angular
+            .module('app')
+            .factory('logger', logger);
 
-    function logger() { }
-})();
-```
+        function logger() { }
+    })();
 
 ###Module
 1、避免命名冲突
@@ -36,10 +34,8 @@ tag: angular
 
 3、Only set once and get for all other instances.
 
-```
-- Use `angular.module('app', []);` to set a module.
-- Use `angular.module('app');` to get a module.
-```
+    - Use `angular.module('app', []);` to set a module.
+    - Use `angular.module('app');` to get a module.
 
 4、使用有名字的函数，避免使用匿名函数
 

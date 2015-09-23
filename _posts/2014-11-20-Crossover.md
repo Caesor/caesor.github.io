@@ -11,6 +11,7 @@ tags: algorithm
 ![picture1]({{site.blogimgurl}}/2014-11-20-01.png "example_pic")
 
 ##单点交叉（Single－Point）
+
 	public class BitsBinarySPX implements IBinarySearchOperation<boolean[]> {// start
 	  /** instantiate */
 	  public BitsBinarySPX() {
@@ -34,6 +35,7 @@ tags: algorithm
 	}
 
 ##组合交叉（Uniform）
+
 	public class BitsBinaryUX implements IBinarySearchOperation<boolean[]> {
 	  public BitsBinaryUX() {
 	    super();

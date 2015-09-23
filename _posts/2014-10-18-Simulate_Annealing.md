@@ -34,57 +34,58 @@ P（∆E）表示新装态pos'可能被接受的一个概率。
 ![picture1]({{site.blogimgurl}}/2014-10-18-03.png "SA")
 
 **P（∆E）**表示新的候选值 x' 能够被采纳的概率。  **T** 温度随着时间的增加而减少
-`public class SA<G, X> extends OptimizationAlgorithm<G, X> {
-  /** the temperature schedule to use */
-  public ITemperatureSchedule temperature;
-  /** instantiate */
-  public SA() {
-    super();
-  }
-  /** {@inheritDoc} */
-  @Override
-  // end
-  public Individual<G, X> solve(final IObjectiveFunction<X> f) {
-  	Individual<G, X> pnew, pcur, best;
-  	//_e表示新的候选结果 x 和旧的候选结果的 x' 差值
-  	double _e, T;
-  	pnew = new Individual<G, X>();
-  	pcur = new Individual<G, X>();
-  	best = new Individual<G, X>();
-  	pcur.g = this.nullary.create(this.random);
-  	pcur.x = this.gpm.gpm(pcur.g);
-  	pcur.v = f.compute(pcur.x);
-  	best.assign(pcur);
-  	int t = 0;
-  	while(!(this.termination.shouldTerminate())){
-	  pnew.g = this.unary.mutate(pcur.g, this.random);
-	  pnew.x = this.gpm.gpm(pnew.g);
-	  pnew.v = f.compute(pnew.x);
-	  _e = pnew.v - pcur.v;
-	  //当新的候选结果比当前结果更优时
-	  if( _e <= 0 ){
-	  	  //收录新结果
-		  pcur.assign(pnew);
-		  //比最佳结果更优时，将其替换为最佳结果
-		  if( pcur.v < best.v ){
-			  best.assign(pcur);
-		  }
-	  }
-	  //关键点！在这里偶尔接受比较糟糕的状态
-	  else{
-	  	  //随着时间t的增加，调用getTemperatrue函数取得随时间 t 增加正在降低的温度 T
-		  T = temperature.getTemperature(t);
-		  if(Math.random() < Math.exp(-(_e / T))){
-		  	  //随机数小于 P（∆E） ，接受新状态作为当前状态
-			  pcur.assign(pnew);
-		  }
-	  }
-	  //退火时间随着迭代的次数增加
-	  t += 1;
-  	}
-  	return best;
-  }
-}`
+
+    public class SA<G, X> extends OptimizationAlgorithm<G, X> {
+      /** the temperature schedule to use */
+      public ITemperatureSchedule temperature;
+      /** instantiate */
+      public SA() {
+        super();
+      }
+      /** {@inheritDoc} */
+      @Override
+      // end
+      public Individual<G, X> solve(final IObjectiveFunction<X> f) {
+      	Individual<G, X> pnew, pcur, best;
+      	//_e表示新的候选结果 x 和旧的候选结果的 x' 差值
+      	double _e, T;
+      	pnew = new Individual<G, X>();
+      	pcur = new Individual<G, X>();
+      	best = new Individual<G, X>();
+      	pcur.g = this.nullary.create(this.random);
+      	pcur.x = this.gpm.gpm(pcur.g);
+      	pcur.v = f.compute(pcur.x);
+      	best.assign(pcur);
+      	int t = 0;
+      	while(!(this.termination.shouldTerminate())){
+    	  pnew.g = this.unary.mutate(pcur.g, this.random);
+    	  pnew.x = this.gpm.gpm(pnew.g);
+    	  pnew.v = f.compute(pnew.x);
+    	  _e = pnew.v - pcur.v;
+    	  //当新的候选结果比当前结果更优时
+    	  if( _e <= 0 ){
+    	  	  //收录新结果
+    		  pcur.assign(pnew);
+    		  //比最佳结果更优时，将其替换为最佳结果
+    		  if( pcur.v < best.v ){
+    			  best.assign(pcur);
+    		  }
+    	  }
+    	  //关键点！在这里偶尔接受比较糟糕的状态
+    	  else{
+    	  	  //随着时间t的增加，调用getTemperatrue函数取得随时间 t 增加正在降低的温度 T
+    		  T = temperature.getTemperature(t);
+    		  if(Math.random() < Math.exp(-(_e / T))){
+    		  	  //随机数小于 P（∆E） ，接受新状态作为当前状态
+    			  pcur.assign(pnew);
+    		  }
+    	  }
+    	  //退火时间随着迭代的次数增加
+    	  t += 1;
+      	}
+      	return best;
+      }
+    }
 
 ##温度调控
 

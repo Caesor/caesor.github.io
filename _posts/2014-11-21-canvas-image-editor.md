@@ -19,11 +19,12 @@ imageData对象有一个data属性，他的只是一个一维数组。该书组�
 `context.putImageData(imageData, 0, 0);`
 
 对图像数据作出修改以后，可以使用 **toDataURL** 方法，将Canvas数据重新转化为一般的图像文件形式
-`function convertCanvasToImage(canvas){
-	var image = new Image();
-	image.src = canvas.toDataURL("image/png");
-	return image;
-}`
+
+    function convertCanvasToImage(canvas){
+    	var image = new Image();
+    	image.src = canvas.toDataURL("image/png");
+    	return image;
+    }
 
 **save** 方法用于保存上下文环境，**restore** 方法用于恢复到上一次保存的上下文环境。
 

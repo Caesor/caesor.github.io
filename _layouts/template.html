@@ -72,10 +72,6 @@
 
 			hljs.initHighlightingOnLoad();
 
-			if($('code').parent()[0].tagName != 'PRE'){
-				$('code').wrap('<pre></pre>');		
-			};
-
 			$(document).scroll(function(){
 				if($(document).scrollTop() > 0){
 					$('#scroll_top_btn').removeClass('displayNone');				
@@ -126,7 +122,6 @@
 				}
 			});
 
-			$('.blog_content').scrollspy({ target: '#blog_nav' })
 		})
 	</script>
 </body>

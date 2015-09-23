@@ -66,12 +66,13 @@ TSP的目标函数是：Minimize f (x) = dist( Hefei , x[0]) + Σ（i=0->2）dis
 4.**终止条件（Termination Criterion）**决定了该方法迭代的结束条件，我们通过设置最大步数（MaxStep）来终结算法。
 
 ##优化算法函数模型
-`public abstract class OptimizationAlgorithm<G, X> {
-  public INullarySearchOperation<G> nullary;
-  public IUnarySearchOperation<G> unary;
-  public ITerminationCriterion termination;
-  public IGPM<G, X> gpm;
-  public final Random random;
-  public abstract Individual<G, X> solve(final IObjectiveFunction<X> f);
-}`
+
+    public abstract class OptimizationAlgorithm<G, X> {
+      public INullarySearchOperation<G> nullary;
+      public IUnarySearchOperation<G> unary;
+      public ITerminationCriterion termination;
+      public IGPM<G, X> gpm;
+      public final Random random;
+      public abstract Individual<G, X> solve(final IObjectiveFunction<X> f);
+    }
 

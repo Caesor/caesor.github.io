@@ -20,15 +20,14 @@ tags: javascript
 
 ###缓存选择器查询结果
 每次DOM选择都要计算，缓存它
-```
-//这样的写法就是糟糕的写法
-jQuery('#top').find('p.classA');
-jQuery('#top').find('p.classB');
-//更好的写法是
-var cached = jQuery('#top'); 
-cached.find('p.classA'); 
-cached.find('p.classB');
-```
+
+	//这样的写法就是糟糕的写法
+	jQuery('#top').find('p.classA');
+	jQuery('#top').find('p.classB');
+	//更好的写法是
+	var cached = jQuery('#top'); 
+	cached.find('p.classA'); 
+	cached.find('p.classB');
 
 ###缓存列表.length
 每次.length都要计算，用一个变量保存这个值
@@ -49,26 +48,26 @@ cached.find('p.classB');
 1）添加defer属性。defer属性告诉浏览器该javascript代码不会影响DOM树，所以等DOM加载完成后执行。当遇到这个script的时候开始下载但是并不立即执行，当**DOM树加载完成在onload事件触发之前**执行，且不会影响到其他资源的下载。
 
 2）动态执行将javascript代码插入文档
-```
-function loadScript(url ,callback){
-	var script = document.createElement("script");
-	script.type = "text/javascript";
-	if( script.readyState ){
-		scrpt.onreadystatechange = function(){
-			if( script.readyState == "loaded" || script.readyState == "complete" ){
-				script.onreadystagechange = null;
+
+	function loadScript(url ,callback){
+		var script = document.createElement("script");
+		script.type = "text/javascript";
+		if( script.readyState ){
+			scrpt.onreadystatechange = function(){
+				if( script.readyState == "loaded" || script.readyState == "complete" ){
+					script.onreadystagechange = null;
+					callback();
+				}
+			};
+		}else{
+			script.onload = function(){
 				callback();
-			}
-		};
-	}else{
-		script.onload = function(){
-			callback();
-		};
-	}	
-	script.src = url;
-	document.getElementsByTageName_r("head")[0].appendChild(script);
-}
-```
+			};
+		}	
+		script.src = url;
+		document.getElementsByTageName_r("head")[0].appendChild(script);
+	}
+
 3）通过XMLHttpRequest从服务端获取js动态插入到文档中
 
 ##数据访问

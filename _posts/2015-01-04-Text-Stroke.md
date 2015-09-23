@@ -10,17 +10,17 @@ tags: css
 
 **例一：字体镂空**
 
-`<p class="eg1">这是一个晴朗的早晨</p>
-.eg1{
-	height:100px;
-	line-height: 100px;
-	font-size: 70px;
-	font-family:georgia;
-	text-align: center;
-	-webkit-text-fill-color:transparent;
-	-webkit-text-stroke:1px #fff;
-	background-image: url(../resource/image/sky5.jpg);
-}`
+	<p class="eg1">这是一个晴朗的早晨</p>
+	.eg1{
+		height:100px;
+		line-height: 100px;
+		font-size: 70px;
+		font-family:georgia;
+		text-align: center;
+		-webkit-text-fill-color:transparent;
+		-webkit-text-stroke:1px #fff;
+		background-image: url(../resource/image/sky5.jpg);
+	}
 
 <p class="eg1">这是一个晴朗的早晨</p>
 <style>
@@ -38,18 +38,18 @@ tags: css
 
 **例二：利用字体镂空给字体添加背景**
 
-`<p class="eg1">这是一个晴朗的早晨</p>
-.eg2{
-	height:100px;
-	line-height: 100px;
-	font-size: 70px;
-	font-family:georgia;
-	text-align: center;
-	text-transform: uppercase;
-	-webkit-text-fill-color:transparent;
-	background:-webkit-linear-gradient(top, #eee, #aaa 30%, #333 61%, #000);
-	-webkit-background-clip:text;
-}`
+	<p class="eg1">这是一个晴朗的早晨</p>
+	.eg2{
+		height:100px;
+		line-height: 100px;
+		font-size: 70px;
+		font-family:georgia;
+		text-align: center;
+		text-transform: uppercase;
+		-webkit-text-fill-color:transparent;
+		background:-webkit-linear-gradient(top, #eee, #aaa 30%, #333 61%, #000);
+		-webkit-background-clip:text;
+	}
 
 <p class="eg2">text-fill-color</p>
 <style>

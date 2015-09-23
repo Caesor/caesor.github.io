@@ -37,83 +37,82 @@ tags: optimization
 
 ###方法一：使用CSS和Javascript实现预加载
 单纯使用CSS，可容易、高效的预加载图片
-```css
-#preload-01 { background: url(http://domain.tld/image-01.png) no-repeat -9999px -9999px; } 
-```
+
+    #preload-01 { background: url(http://domain.tld/image-01.png) no-repeat -9999px -9999px; } 
+
 使用该方法加载图片会同页面的其他内容一起加载，增加了页面的整体加载时间。为了解决这个为题，我们增加一些javascript来推迟预加载时间，直到页面加载完毕。
 
-```
-function preloader() {  
-    if (document.getElementById) {  
-        document.getElementById("preload-01").style.background = "url(http://domain.tld/image-01.png) no-repeat -9999px -9999px";  
-        document.getElementById("preload-02").style.background = "url(http://domain.tld/image-02.png) no-repeat -9999px -9999px";  
-        document.getElementById("preload-03").style.background = "url(http://domain.tld/image-03.png) no-repeat -9999px -9999px";  
-    }  
-}  
-function addLoadEvent(func) {  
-    var oldonload = window.onload;  
-    if (typeof window.onload != 'function') {  
-        window.onload = func;  
-    } else {  
-        window.onload = function() {  
-            if (oldonload) {  
-                oldonload();  
-            }  
-            func();  
+    function preloader() {  
+        if (document.getElementById) {  
+            document.getElementById("preload-01").style.background = "url(http://domain.tld/image-01.png) no-repeat -9999px -9999px";  
+            document.getElementById("preload-02").style.background = "url(http://domain.tld/image-02.png) no-repeat -9999px -9999px";  
+            document.getElementById("preload-03").style.background = "url(http://domain.tld/image-03.png) no-repeat -9999px -9999px";  
         }  
     }  
-}  
-addLoadEvent(preloader);  
-```
+    function addLoadEvent(func) {  
+        var oldonload = window.onload;  
+        if (typeof window.onload != 'function') {  
+            window.onload = func;  
+        } else {  
+            window.onload = function() {  
+                if (oldonload) {  
+                    oldonload();  
+                }  
+                func();  
+            }  
+        }  
+    }  
+    addLoadEvent(preloader);  
+
 
 ###方法二：仅使用Javascript实现预加载
 上述方法在实际实现过程中会耗费太多时间。
-```
-function preloader() {  
-    if (document.images) {  
-        var img1 = new Image();  
-        var img2 = new Image();  
-        var img3 = new Image();  
-        img1.src = "http://domain.tld/path/to/image-001.gif";  
-        img2.src = "http://domain.tld/path/to/image-002.gif";  
-        img3.src = "http://domain.tld/path/to/image-003.gif";  
-    }  
-}  
-function addLoadEvent(func) {  
-    var oldonload = window.onload;  
-    if (typeof window.onload != 'function') {  
-        window.onload = func;  
-    } else {  
-        window.onload = function() {  
-            if (oldonload) {  
-                oldonload();  
-            }  
-            func();  
+
+    function preloader() {  
+        if (document.images) {  
+            var img1 = new Image();  
+            var img2 = new Image();  
+            var img3 = new Image();  
+            img1.src = "http://domain.tld/path/to/image-001.gif";  
+            img2.src = "http://domain.tld/path/to/image-002.gif";  
+            img3.src = "http://domain.tld/path/to/image-003.gif";  
         }  
     }  
-}  
-addLoadEvent(preloader);    
-```
+    function addLoadEvent(func) {  
+        var oldonload = window.onload;  
+        if (typeof window.onload != 'function') {  
+            window.onload = func;  
+        } else {  
+            window.onload = function() {  
+                if (oldonload) {  
+                    oldonload();  
+                }  
+                func();  
+            }  
+        }  
+    }  
+    addLoadEvent(preloader);    
+
 
 ###方法三：使用Ajax实现预加载
 使用Ajax实现图片预加载，不仅仅预加载图片，还会预加载CSS、javascript等相关的东西。
 
 **使用Ajax比直接使用javascript的优越之处在于javascript和CSS的加载不会影响到当前页面。**
-```
-window.onload = function() {  
-    setTimeout(function() {  
-        // XHR to request a JS and a CSS  
-        var xhr = new XMLHttpRequest();  
-        xhr.open('GET', 'http://domain.tld/preload.js');  
-        xhr.send('');  
-        xhr = new XMLHttpRequest();  
-        xhr.open('GET', 'http://domain.tld/preload.css');  
-        xhr.send('');  
-        // preload image  
-        new Image().src = "http://domain.tld/preload.png";  
-    }, 1000);  
-};  
-```
+
+    window.onload = function() {  
+        setTimeout(function() {  
+            // XHR to request a JS and a CSS  
+            var xhr = new XMLHttpRequest();  
+            xhr.open('GET', 'http://domain.tld/preload.js');  
+            xhr.send('');  
+            xhr = new XMLHttpRequest();  
+            xhr.open('GET', 'http://domain.tld/preload.css');  
+            xhr.send('');  
+            // preload image  
+            new Image().src = "http://domain.tld/preload.png";  
+        }, 1000);  
+    };  
+
 ##延迟加载机制
 图片延迟加载——懒加载，通常用于图片比较多的网页。
 
@@ -121,9 +120,9 @@ window.onload = function() {
 
 ###延迟加载的原理
 页面初次加载时获取图片在页面中的位置并**缓存**（每次取offset的值会引发页面的重排-reflow），计算出可视区域，当图片的位置出现在可视区域中，将src的值替换成真实的地址，此时图片就开始加载了。
-```
-<img src="images/placeholder.png" alt="" real-src="images/realimg.jpg">
-```
+
+    <img src="images/placeholder.png" alt="" real-src="images/realimg.jpg">
+
 当页面滚动的时候，在判断图片已经缓存的位置值是否出现在可视区域内，进行替换src加载。**当所有的图片都加载完之后，相应的出发时间卸载，避免重复操作引起的内存泄露。**
 
 ###非常好的延迟插件

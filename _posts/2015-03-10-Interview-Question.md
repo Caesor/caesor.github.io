@@ -99,9 +99,9 @@ StackOverflow——[what happens when you type in a URL in browser [closed]](htt
 bind()是把该函数绑定到指定的context上下文执行环境中，简单讲就是把该函数的this对象指向传到bind()中的参数context上，并**返回一个函数实例**。
 
 ###区别
-```javascript
-foo.call(this, arg1, arg2, arg3) == foo.apply(this, arguments) == this.foo(arg1, arg2, arg3)
-```
+
+    foo.call(this, arg1, arg2, arg3) == foo.apply(this, arguments) == this.foo(arg1, arg2, arg3)
+
 
 call() 和 apply() 的第一个实参是要调用函数的母对象，它是调用上下文，在函数体内通过 this 来获得对它的引用。在 ECMAScript 5 严格模式中， call() 和 apply() 的第一个实参都会变为 this 的值，哪怕 传入的实参是原始值甚至是 null 或 undefined 。在 ECMAScript 和非严格模式中，传入的 null 和 underfined 都会被全局对象代替。而其他原始值则会被相应的包装对象（wrapper object）所代替。
 
@@ -109,61 +109,60 @@ call() 和 apply() 的第一个实参是要调用函数的母对象，它是调�
 **不同点：**方法传递的参数不同
 
 例子一：
-```javascript
-function print(a,b,c,d){
-	alert(a+b+c+d);
-}
-function example(a,b,c,d){
-	//用call方式借用print，参数显式打散传递
-	print.call(this, a, b, c, d);
-	//用apply的方式借用print，在参数作为一个数组传递
-	//arguments数组是javascript方法内本身自带的
-	print.apply(this, arguments);
-	//或者封装成数组
-	print.apply(this, [a,b,c,d]);
-}
-```
+
+    function print(a,b,c,d){
+    	alert(a+b+c+d);
+    }
+    function example(a,b,c,d){
+    	//用call方式借用print，参数显式打散传递
+    	print.call(this, a, b, c, d);
+    	//用apply的方式借用print，在参数作为一个数组传递
+    	//arguments数组是javascript方法内本身自带的
+    	print.apply(this, arguments);
+    	//或者封装成数组
+    	print.apply(this, [a,b,c,d]);
+    }
 
 例子二：
-```
-function sayHi(name,greeting){
-	var name = name||this.name,
-	    greeting = greeting||this.greeting;
-	console.log("Hello "+name+","+greeting);
-}
-var name = "Terry",
-    greeting = "how are you?",
-    me = {
-    	name : "John",
-		greeting : "你好！"
-	};
-sayHi.call(this,name,greeting);	// Hello Terry, how are you?
-sayHi.call(this);	// Hello Terry, how are you?
-sayHi.apply(this,[name,greeting]);	// Hello Terry, how are you?
-sayHi.apply(me,[me.name,me.greeting]);	// Hello John, 你好！
-sayHi.call(me,me.name,me.greeting);	// Hello John, 你好！
-//bind()会返回函数实例，后面加()直接执行
-sayHi.bind()();	// Hello Terry, how are you?
-sayHi.bind(me)();	// Hello John, 你好！
-```
+
+    function sayHi(name,greeting){
+    	var name = name||this.name,
+    	    greeting = greeting||this.greeting;
+    	console.log("Hello "+name+","+greeting);
+    }
+    var name = "Terry",
+        greeting = "how are you?",
+        me = {
+        	name : "John",
+    		greeting : "你好！"
+    	};
+    sayHi.call(this,name,greeting);	// Hello Terry, how are you?
+    sayHi.call(this);	// Hello Terry, how are you?
+    sayHi.apply(this,[name,greeting]);	// Hello Terry, how are you?
+    sayHi.apply(me,[me.name,me.greeting]);	// Hello John, 你好！
+    sayHi.call(me,me.name,me.greeting);	// Hello John, 你好！
+    //bind()会返回函数实例，后面加()直接执行
+    sayHi.bind()();	// Hello Terry, how are you?
+    sayHi.bind(me)();	// Hello John, 你好！
+
 
 例子三：
-```
-function Thing() {
-}
-Thing.prototype.foo = "bar";
-Thing.prototype.logFoo = function () { 
-    function doIt() {
-        console.log(this.foo);
+
+    function Thing() {
     }
-    doIt.apply(this);
-}
-function doItIndirectly(method) {
-    method();
-}
-var thing = new Thing();
-doItIndirectly(thing.logFoo.bind(thing)); //logs bar
-```
+    Thing.prototype.foo = "bar";
+    Thing.prototype.logFoo = function () { 
+        function doIt() {
+            console.log(this.foo);
+        }
+        doIt.apply(this);
+    }
+    function doItIndirectly(method) {
+        method();
+    }
+    var thing = new Thing();
+    doItIndirectly(thing.logFoo.bind(thing)); //logs bar
+
 
 注：javascript对象所有属性都是公开的（public）， 没有私有（private）。 
 
@@ -186,20 +185,20 @@ arguments.length 是实参长度,	arguments.callee.length 是形参长度
 如果函数是由 javascript 程序的**顶层**调用的，那么 caller 包含的就是 null 。
 
 如果在**字符串上下文**中使用 caller 属性，那么结果和 functionName.toString 一样，也就是说，显示的是函数的反编译文本。
-```
-function CallLevel(){
-	if( CallLevel.caller == null ){
-		console.log("CallLevel was called from the top level.")
-	}else{
-		console.log("CallLevel was called by another function:\n" + CallLevel.caller);
-	}
-}
-function funCaller(){
-	CallLevel();
-}
-CallLevel();	// null
-funCaller();	// funCaller()
-```
+
+    function CallLevel(){
+    	if( CallLevel.caller == null ){
+    		console.log("CallLevel was called from the top level.")
+    	}else{
+    		console.log("CallLevel was called by another function:\n" + CallLevel.caller);
+    	}
+    }
+    function funCaller(){
+    	CallLevel();
+    }
+    CallLevel();	// null
+    funCaller();	// funCaller()
+
 
 ##作用域
 1、内部环境可以通过作用域链访问所有的外部环境，但外部环境不能访问内部环境中的任何变量和函数。
@@ -219,14 +218,14 @@ funCaller();	// funCaller()
 	b)赋值 null，切断变量与此前引用值之间的连接，“解除引用”
 
 ###Scoping & Hoisting
-```
-var scope = "hello";
-function scopeTest() {
-    console.log(scope);	// undefined
-    var scope = "no";
-    console.log(scope);	// no
-}
-```
+
+    var scope = "hello";
+    function scopeTest() {
+        console.log(scope);	// undefined
+        var scope = "no";
+        console.log(scope);	// no
+    }
+
 声明提前、全局变量优先级低于局部变量
 
 参考：[Scoping & Hoisting](http://segmentfault.com/a/1190000000348228)
@@ -246,34 +245,34 @@ function scopeTest() {
 函数执行完毕后，其活动对象也不会被销毁，因为匿名函数的作用域链仍然在引用这个活动对象。 该函数的执行环境的作用域链会被销毁，但他的活动对象仍然会留在内存中；直到匿名函数被销毁后，函数的活动对象才会被销毁。
 
 例子：
-```javascript
-function Thing(){}
-Thing.prototype.foo = "bar";
-Thing.prototype.logFoo = function(){
-	function doIt(){
-		console.log(this.foo);
-	}
-}
-var thing = new Thing();
-thing.logFoo();	//undefined
-```
+
+    function Thing(){}
+    Thing.prototype.foo = "bar";
+    Thing.prototype.logFoo = function(){
+    	function doIt(){
+    		console.log(this.foo);
+    	}
+    }
+    var thing = new Thing();
+    thing.logFoo();	//undefined
+
 **内层函数通过闭包获取外层函数里定义的变量值，不是直接继承自 this;**
 
-```javascript
-function Thing(){}
-Thing.prototype.foo = "bar";
-Thing.prototype.logFoo = function(){
-	console.log(this.foo);
-}
-function doIt(method){
-	method();
-}
-var thing = new Thing();
-thing.logFoo();	// logs "bar"
-doIt(thing.logFoo);	// undefined
-//使用 bind 显示指明上下文
-doIt(thing.logFoo.bind(thing));
-```
+
+    function Thing(){}
+    Thing.prototype.foo = "bar";
+    Thing.prototype.logFoo = function(){
+    	console.log(this.foo);
+    }
+    function doIt(method){
+    	method();
+    }
+    var thing = new Thing();
+    thing.logFoo();	// logs "bar"
+    doIt(thing.logFoo);	// undefined
+    //使用 bind 显示指明上下文
+    doIt(thing.logFoo.bind(thing));
+
 
 ###闭包的用途
 1、可以读取函数内部私有变量
@@ -294,70 +293,70 @@ doIt(thing.logFoo.bind(thing));
 每次函数调用的事后创建一个新的闭包
 
 ###闭包的应用
-```
-var singleton = (function(){
-	var privateVariable;
-	function privateFunction(x){
-		...privateVariable...
-	}
-	return {
-		firstMethod: function(a, b){
-			...privateVariable...		
-		},
-		secondMethod: function(c){
-			...privateFunction()...
-		}
-	};	
-})();
-```
+
+    var singleton = (function(){
+    	var privateVariable;
+    	function privateFunction(x){
+    		...privateVariable...
+    	}
+    	return {
+    		firstMethod: function(a, b){
+    			...privateVariable...		
+    		},
+    		secondMethod: function(c){
+    			...privateFunction()...
+    		}
+    	};	
+    })();
+
 
 ###闭包中的this
 在闭包中函数作为某个对象的方法调用时，要特别注意，该方法内部匿名函数的this指向的是**全局变量**。
-```
-var scope = "golobal";
-var object = {
-    scope:"local",
-    getScope:function(){
-        return function(){
-            return this.scope;
+
+    var scope = "golobal";
+    var object = {
+        scope:"local",
+        getScope:function(){
+            return function(){
+                return this.scope;
+            }
         }
     }
-}
-console.log(object.getScope()());	// golobal
-```
+    console.log(object.getScope()());	// golobal
+
 
 
 解决方法一：赋值 _this
-```
-var scope = "golobal";
-var object = {
-    scope:"local",
-    getScope:function(){
-        var _this = this;
-        return function(){
-            return _this.scope;
+
+    var scope = "golobal";
+    var object = {
+        scope:"local",
+        getScope:function(){
+            var _this = this;
+            return function(){
+                return _this.scope;
+            }
         }
     }
-}
-var val = object.getScope();
-console.log(val());	// local
-```
+    var val = object.getScope();
+    console.log(val());	// local
+
 
 解决方法二：使用 apply || call
-```
-var name = "golobal";
-function Thing(){}
-Thing.prototype.name = "local";
-Thing.prototype.logName = function(){
-	function doIt(){
-		console.log(this.name);
-	}
-	doIt();	// golobal
-	doIt.apply(this);	// local
-}
-var thing = new Thing();
-thing.logName();
-```
+
+    var name = "golobal";
+    function Thing(){}
+    Thing.prototype.name = "local";
+    Thing.prototype.logName = function(){
+    	function doIt(){
+    		console.log(this.name);
+    	}
+    	doIt();	// golobal
+    	doIt.apply(this);	// local
+    }
+    var thing = new Thing();
+    thing.logName();
+
 
 总结：
 
@@ -369,18 +368,18 @@ thing.logName();
 1、由于闭包会使得变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。
 
 解决方法是：在函数退出之前，将不是哦你给的局部变量全部删除。
-```
-function bindEvent(){
-    var target = document.getElementById("elem");
-    var name = target.name;
-    // 通过创建target.name副本减少对外部变量的循环引用以及手动重置对象
-    target.onclick = function(){
-        console.log(name);
-    }
-    // 赋值 NULL 回收
-    target = null;
- }
-```
+
+    function bindEvent(){
+        var target = document.getElementById("elem");
+        var name = target.name;
+        // 通过创建target.name副本减少对外部变量的循环引用以及手动重置对象
+        target.onclick = function(){
+            console.log(name);
+        }
+        // 赋值 NULL 回收
+        target = null;
+     }
+
 
 2、闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当做对象使用，把闭包当做它的公用方法，把内部变量当做它的私有属性，者一定要小心，不要随便改变父函数内部变量的值。
 
@@ -396,31 +395,31 @@ function bindEvent(){
 
 ##模拟块级作用域
 使用闭包来定义公共函数，可以访问私有函数和变量
-```javascript
-var Counter = (function(){
-	var privateCounter = 0;
-	function changeBy(val){
-		privateCounter += val;
-	}
-	return {
-		increment: function(){
-			changeBy(1);
-		},
-		decrement: function(){
-			changeBy(-1);
-		},
-		value: function(){
-			return privateCounter;
-		}
-	}
-})()
-alert(Counter.value());	// 0
-Counter.increment();
-Counter.increment();
-alert(Counter.value());	// 2
-Counter.decrement();
-alert(Counter.value());	// 1
-```
+
+    var Counter = (function(){
+    	var privateCounter = 0;
+    	function changeBy(val){
+    		privateCounter += val;
+    	}
+    	return {
+    		increment: function(){
+    			changeBy(1);
+    		},
+    		decrement: function(){
+    			changeBy(-1);
+    		},
+    		value: function(){
+    			return privateCounter;
+    		}
+    	}
+    })()
+    alert(Counter.value());	// 0
+    Counter.increment();
+    Counter.increment();
+    alert(Counter.value());	// 2
+    Counter.decrement();
+    alert(Counter.value());	// 1
+
 
 
 
@@ -429,15 +428,15 @@ alert(Counter.value());	// 1
 
 ###prototype 和 __proto__ 的区别
 父原型可以通过 __proto__ 进行访问
-```
-function Person(){}
-Person.prototype.name = 'nick';
-var p1 = new Person();
-var p2 = new Person();
-p1.name === p2.name;	// true
-p1.__proto__ === Person.prototype;	// true
-Person.prototype.__proto__ === Object.prototype
-```
+
+    function Person(){}
+    Person.prototype.name = 'nick';
+    var p1 = new Person();
+    var p2 = new Person();
+    p1.name === p2.name;	// true
+    p1.__proto__ === Person.prototype;	// true
+    Person.prototype.__proto__ === Object.prototype
+
 相关链接：
 
 [你应该知道的javascript](http://www.cnblogs.com/jianjialin/articles/1712988.html)
@@ -447,39 +446,39 @@ Person.prototype.__proto__ === Object.prototype
 
 ###类
 构造函数模式用于定义实例属性，原型模式用于定义方法和共享属性。
-```javascript
-function Thing(){
-	//在这里面定义属性每个实例互不影响
-	this.things = [];
-}
-```
+
+    function Thing(){
+    	//在这里面定义属性每个实例互不影响
+    	this.things = [];
+    }
+
 
 ###继承
 
-```javascript
-function Super(name){
-	this.name = name;
-	this.colors = ["red","green","blue"];
-}
-Super.prototype.sayName = function(){
-	alert(this.name);
-}
-function Sub(name, age){
-	//继承属性
-	Super.call(this, name);
-	this.age = age;
-}
-Sub.prototype = new Super();
-Sub.prototype.constructor = Sub;
-Sub.prototype.sayAge = function(){
-	alert(this.age);
-};
-```
+
+    function Super(name){
+    	this.name = name;
+    	this.colors = ["red","green","blue"];
+    }
+    Super.prototype.sayName = function(){
+    	alert(this.name);
+    }
+    function Sub(name, age){
+    	//继承属性
+    	Super.call(this, name);
+    	this.age = age;
+    }
+    Sub.prototype = new Super();
+    Sub.prototype.constructor = Sub;
+    Sub.prototype.sayAge = function(){
+    	alert(this.age);
+    };
+
 
 ##事件
 
 ###onclick 和 ontachmove的区别——延迟不一样
-touchstart --> touchmove -> touchend --》click
+touchstart -> touchmove -> touchend -> click
 
 所以：click在移动手持设备上带来的延迟
 
@@ -507,72 +506,72 @@ touchstart --> touchmove -> touchend --》click
 [鑫空间](http://www.zhangxinxu.com/wordpress/2012/04/js-dom%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6/)
 
 ###事件类型
-event.type: 
+`event.type: `
 
 ###跨浏览器事件对象
 在事件处理程序内部， `this` 始终等于 `currentTarget` 的值， `target` 只包含事件的实际目标。
 
-1、如果事件处理程序指定给了**目标元素**,那么 this == currentTarget == target
+1、如果事件处理程序指定给了**目标元素**,那么 `this == currentTarget == target`
 
 2、如果**事件处理程序存在于父节点中**，那么 
-```
-document.body.onclick = function(event){
-	console.log(currentTarget == document.body);	// true 
-	console.log(this == document.body);	// true
-	console.log(event.target == document.getElementById("myBtn"));	// true
-}
-```
 
-```
-var EventUtil = {
-	getEvent: function(event){
-		return event ? event : window.event;
-	},
-	getTarget: function(event){
-		return event.target || event.srcElement;
-	},
-	// 阻止默认行为
-	preventDefault: function(event){
-		if( event.preventDefault ){
-			event.preventDefault();
-		}else{	// IE
-			event.returnValue = false;
-		}
-	},
-	// 阻止事件冒泡
-	stopPropagation: function(event){
-		if( event.stopPropagation ){	//
-			event.stopPropagation();
-		}else{	// IE
-			event.cancelBubble = true;
-		}
-	}
-}
-```
+    document.body.onclick = function(event){
+    	console.log(currentTarget == document.body);	// true 
+    	console.log(this == document.body);	// true
+    	console.log(event.target == document.getElementById("myBtn"));	// true
+    }
+
+
+
+    var EventUtil = {
+    	getEvent: function(event){
+    		return event ? event : window.event;
+    	},
+    	getTarget: function(event){
+    		return event.target || event.srcElement;
+    	},
+    	// 阻止默认行为
+    	preventDefault: function(event){
+    		if( event.preventDefault ){
+    			event.preventDefault();
+    		}else{	// IE
+    			event.returnValue = false;
+    		}
+    	},
+    	// 阻止事件冒泡
+    	stopPropagation: function(event){
+    		if( event.stopPropagation ){	//
+    			event.stopPropagation();
+    		}else{	// IE
+    			event.cancelBubble = true;
+    		}
+    	}
+    }
+
 
 ###跨浏览器事件处理
-```
-var EventUtil = {
-	addHandler: function(element, type, handler){
-		if( element.addEventListener){	// 非IE DOM 2级
-			element.addEventLister(type, handler, false);
-		}else if(element.attachEvent){	// IE DOM 2级
-			element.attachEvent("on" + type, handler);
-		}else{	// DOM 0级
-			element["on" + type] = handler; // btn.onclick, 属性通过数组来访问！
-		}
-	},
-	removeHandler: function(element, type, handler){
-		if(element.removeEventListener){
-			element.removeEventListener(type, handler, false);
-		}else if(element.detachEvent){
-			element.detachEvent("on" + type, handler);
-		}else{
-			element["on" + type] = null;
-		}
-	}	
-}
-```
+
+    var EventUtil = {
+    	addHandler: function(element, type, handler){
+    		if( element.addEventListener){	// 非IE DOM 2级
+    			element.addEventLister(type, handler, false);
+    		}else if(element.attachEvent){	// IE DOM 2级
+    			element.attachEvent("on" + type, handler);
+    		}else{	// DOM 0级
+    			element["on" + type] = handler; // btn.onclick, 属性通过数组来访问！
+    		}
+    	},
+    	removeHandler: function(element, type, handler){
+    		if(element.removeEventListener){
+    			element.removeEventListener(type, handler, false);
+    		}else if(element.detachEvent){
+    			element.detachEvent("on" + type, handler);
+    		}else{
+    			element["on" + type] = null;
+    		}
+    	}	
+    }
+
 
 ###事件委托（事件代理）delegate	
 在javascript中，添加到页面上的函数都是对象，都会占用内存，内存中的对象越多，性能就越差。
@@ -580,24 +579,24 @@ var EventUtil = {
 对事件处理程序过多问题的解决方案就是**事件委托**。事件委托利用率事件冒泡，只指定一个事件处理程序，就可以管理某一类型的所有事件。
 
 利用事件委托，只需在DOM书中尽量最高的层次上添加一个事件处理程序。
-```javascript
-var list = document.getElementById("myLinks");
-EventUtil.addHandler(list, "click", function(event){
-	event = EventUtil.getEvent(event);	// event || window.event
-	var target = EventUtil.getTarget(event);	// event.target || event.srcElement
-	switch(target.id){
-		case "doSomething":
-			document.title = "I changed the document's title";
-			break;
-		case "goSomentWhere":
-			location.href = "http://ww.wrox.com"
-			break;
-		case "sayHi":
-			alert("hi");
-			break;
-	}
-})
-```
+
+    var list = document.getElementById("myLinks");
+    EventUtil.addHandler(list, "click", function(event){
+    	event = EventUtil.getEvent(event);	// event || window.event
+    	var target = EventUtil.getTarget(event);	// event.target || event.srcElement
+    	switch(target.id){
+    		case "doSomething":
+    			document.title = "I changed the document's title";
+    			break;
+    		case "goSomentWhere":
+    			location.href = "http://ww.wrox.com"
+    			break;
+    		case "sayHi":
+    			alert("hi");
+    			break;
+    	}
+    })
+
 
 这段代码消耗很低，因为只取得一个DOM元素，只添加一个事件处理程序，占用内存更至少。
 
@@ -622,23 +621,23 @@ XMLHttpRequest的5种状态
 
 4：XMLHttpRequest 对象读取服务器响应结束
 
-```
-var xmlhttp;
-if(window.XMLHttpRequest){
-	xmlhttp = new XMLHttpRequest();
-}else{
-	xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");	// IE 5、6
-}
-//监听
-xmlhttp.onreadystatechange = function(){
-	if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-		// do something
-	}
-}
-//method url async
-xmlhttp.open("GET", "text1.txt", true);	// true：异步，false：同步
-xmlhttp.send();
-```
+
+    var xmlhttp;
+    if(window.XMLHttpRequest){
+    	xmlhttp = new XMLHttpRequest();
+    }else{
+    	xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");	// IE 5、6
+    }
+    //监听
+    xmlhttp.onreadystatechange = function(){
+    	if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+    		// do something
+    	}
+    }
+    //method url async
+    xmlhttp.open("GET", "text1.txt", true);	// true：异步，false：同步
+    xmlhttp.send();
+
 
 ###Ajax的优势
 1、减轻服务器的负担。因为Ajax的根本理念是“按需取数据”，所以最大可能在减少了冗余请求和响影对服务器造成的负担；
@@ -658,23 +657,23 @@ JavaScript出于安全方面的考虑，不允许跨域调用其他页面的对�
 对于主域相同而子域不同的例子，可以通过设置document.domain的办法来解决。具体的做法是可以在http://www.a.com/a.html和http://script.a.com/b.html两个文件中分别加上`document.domain = ‘a.com’`；然后通过a.html文件中创建一个iframe，去控制iframe的contentDocument，这样两个js文件之间就可以“交互”了。当然这种办法只能解决主域相同而二级域名不同的情况，如果你异想天开的把script.a.com的domian设为alibaba.com那显然是会报错地！代码如下：
 
 www.a.com上的a.html:
-```
-document.domain = 'a.com';
-var ifr = document.createElement('iframe');
-ifr.src = 'http://script.a.com/b.html';
-ifr.style.display = 'none';
-document.body.appendChild(ifr);
-ifr.onload = function(){
-    var doc = ifr.contentDocument || ifr.contentWindow.document;
-    // 在这里操纵b.html
-    alert(doc.getElementsByTagName("h1")[0].childNodes[0].nodeValue);
-};
-```
+
+    document.domain = 'a.com';
+    var ifr = document.createElement('iframe');
+    ifr.src = 'http://script.a.com/b.html';
+    ifr.style.display = 'none';
+    document.body.appendChild(ifr);
+    ifr.onload = function(){
+        var doc = ifr.contentDocument || ifr.contentWindow.document;
+        // 在这里操纵b.html
+        alert(doc.getElementsByTagName("h1")[0].childNodes[0].nodeValue);
+    };
+
 
 script.a.com上的b.html
-```
-document.domain = 'a.com';
-```
+
+    document.domain = 'a.com';
+
 这种方式适用于{www.kuqin.com, kuqin.com, script.kuqin.com, css.kuqin.com}中的任何页面相互通信。
 
 备注：某一页面的domain默认等于window.location.hostname。主域名是不带www的域名，例如a.com，主域名前面带前缀的通常都为二级域名或多级域名，例如www.a.com其实是二级域名。 domain只能设置为主域名，不可以在b.a.com中将domain设置为c.a.com。
@@ -730,10 +729,10 @@ document.domain = 'a.com';
 
 ###垂直居中
 1、方法一——使用table-ceil
-```
+
 #wrapper {display:table;}
 #cell {display:table-cell; vertical-align:middle;}
-```
+
 **优点：**
 content 可以动态改变高度(不需在 CSS 中定义)。当 wrapper 里没有足够空间时， content 不会被截断
 
@@ -741,14 +740,14 @@ content 可以动态改变高度(不需在 CSS 中定义)。当 wrapper 里没�
 Internet Explorer(甚至 IE8 beta)中无效，许多嵌套标签(其实没那么糟糕，另一个专题)
 
 2、方法二——绝对定位
-```
-#content {
-	position:absolute;
-	top:50%;
-	height:240px;
-	margin-top:-120px; /* negative half of the height */
-}
-```
+
+    #content {
+    	position:absolute;
+    	top:50%;
+    	height:240px;
+    	margin-top:-120px; /* negative half of the height */
+    }
+
 **优点：**
 适用于所有浏览器
 
@@ -758,24 +757,24 @@ Internet Explorer(甚至 IE8 beta)中无效，许多嵌套标签(其实没那么
 没有足够空间时，content 会消失(类似div 在 body 内，当用户缩小浏览器窗口，滚动条不出现的情况)
 
 3、方法三——绝对定位，可不确定高度
-```css
-.wrapper{
-	border:1px solid #f80;
-	position: relative;
-	height: 100px;
-}
-.content{
-	border:1px solid #000;
-	height: 80px;
-	width: 80%;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	margin: auto;
-}
-```
+
+    .wrapper{
+    	border:1px solid #f80;
+    	position: relative;
+    	height: 100px;
+    }
+    .content{
+    	border:1px solid #000;
+    	height: 80px;
+    	width: 80%;
+    	position: absolute;
+    	top: 0;
+    	bottom: 0;
+    	left: 0;
+    	right: 0;
+    	margin: auto;
+    }
+
 **优点：**
 简单
 
@@ -785,9 +784,9 @@ IE(IE8 beta)中无效
 无足够空间时，content 被截断，但是不会有滚动条出现
 
 4、方法四——单行文本置中
-```
-#content {height:100px; line-height:100px;}
-```
+
+    #content {height:100px; line-height:100px;}
+
 
 
 ###position
@@ -800,10 +799,10 @@ IE(IE8 beta)中无效
 **absulote**：绝对定位的元素的位置相对于最近的已定位祖先元素(relative / absulote)，如果元素没有已定位的祖先元素，那么它的位置相对于最初的包含块(body)。
 
 ###超越行内 style 样式
-```css
-//具有最高优先级
-box{color:red !important;} 	// ie 7/8/FF
-```
+
+    //具有最高优先级
+    box{color:red !important;} 	// ie 7/8/FF
+
 
 ###字体大小
 **px**:是基于像素的单位.在浏览网页过程中，屏幕上的文字、图片等会随屏幕的分辨率变化而变化
@@ -840,39 +839,39 @@ img、input 是替换元素；替换元素一般有内在尺寸，所以具有wi
 `arr instanceof Array == true`
 
 3、
-```
-function isArray(obj){
-	return Object.prototype.toString.call(obj) === '[object Array]';
-}
-```
+
+    function isArray(obj){
+    	return Object.prototype.toString.call(obj) === '[object Array]';
+    }
+
 
 ##写一个input实时请求加载
-```
-function showResult(str) {
-  if (str.length==0) { 
-    document.getElementById("livesearch").innerHTML="";
-    return;
-  }
-  if (window.XMLHttpRequest) {
-    // code for IE7+, Firefox, Chrome, Opera, Safari
-    xmlhttp=new XMLHttpRequest();
-  } else {  // code for IE6, IE5
-    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-  xmlhttp.onreadystatechange=function() {
-    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-      document.getElementById("livesearch").innerHTML=xmlhttp.responseText;
-    }
-  }
-  xmlhttp.open("GET","livesearch.php?q="+str,true);
-  xmlhttp.send();
-}
 
-<form>
-<input type="text" size="30" onkeyup="showResult(this.value)">
-<div id="livesearch"></div>
-</form>
-```
+    function showResult(str) {
+      if (str.length==0) { 
+        document.getElementById("livesearch").innerHTML="";
+        return;
+      }
+      if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+      } else {  // code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+          document.getElementById("livesearch").innerHTML=xmlhttp.responseText;
+        }
+      }
+      xmlhttp.open("GET","livesearch.php?q="+str,true);
+      xmlhttp.send();
+    }
+
+    <form>
+    <input type="text" size="30" onkeyup="showResult(this.value)">
+    <div id="livesearch"></div>
+    </form>
+
 ##参考文章
 
 [HTML head头标签](<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">)
