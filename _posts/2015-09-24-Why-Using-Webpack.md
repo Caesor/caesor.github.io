@@ -4,6 +4,7 @@ title: 为什么使用Webpack
 categories: font-end
 tags: webpack javascript
 ---
+##Webpack
 如果你懂 Broserify, RequireJS 或者类似的打包工具，并且注重这些东西:
 + 代码分包
 + 异步加载
@@ -11,13 +12,24 @@ tags: webpack javascript
 
 那么，Webpack 就非常合适！
 
-##为什么使用 Webpack？
+###介绍
+WebPack 是一个模块打包工具，你可以使用WebPack管理你的模块依赖，并编绎输出模块们所需的静态文件。它能够很好地管理、打包Web开发中所用到的HTML、Javascript、CSS以及各种静态文件（图片、字体等），让开发过程更加高效。
+
+为了将模块化技术用于浏览器，人们造出了一大堆工具比如：RequireJS、Browserify、LABjs、Sea.js、Duo等。同时，由于Javascript的标准没有对模块的规范进行定义，所以伟大的程序员们又定义了一系列不同的模块定义，比如：CommonJS、AMD、CMD、UMD等。
+
+Webpack同时支持同步模式(CommonJS)和异步模式(AMD形式)的模块
+
+webpack的优势：
++ require.js的所有功能它都有
++ 编绎过程更快，因为require.js会去处理不需要的文件
+
+###为什么使用 Webpack？
 + 她像 Browserify, 但是将你的应用打包为多个文件. 如果你的单页面应用有多个页面, 那么用户只从下载对应页面的代码. 当他么访问到另一个页面, 他们不需要重新下载通用的代码。
 + 他在很多地方能替代 Grunt 跟 Gulp，因为他能够编译打包 CSS, 做 CSS 预处理, 编译 JS, 打包图片, 还有其他一些.
 
 它支持 AMD 跟 CommonJS, 以及其他一些模块系统, (Angular, ES6). 如果你不知道用什么, 就用 CommonJS
 
-##样式表和图片
+###样式表和图片
 首先更新你的代码用 require() 加载静态资源
 
     require('./bootstrap.css');
@@ -52,7 +64,7 @@ tags: webpack javascript
 
 针对 profile, 在页面当中插入`<script src="build/Profile.min.js"></script>`. feed 页面也是一样。
 
-##优化公用代码
+###优化公用代码
 feed 页面跟 profile 页面共用必要代码(比如 React 还有通用的样式和 component). Webpack 可以分析出来他们有多少共用模块, 然后生成一个共享的包用于代码的缓存。
 
     // webpack.config.js
@@ -75,7 +87,7 @@ feed 页面跟 profile 页面共用必要代码(比如 React 还有通用的样�
 
 在上一个步骤的 script 标签前面加上 `<script src="build/common.js"></script>` 你就能得到廉价的缓存了.
 
-##异步加载
+###异步加载
 CommonJS 是同步的, 但是 Webpack 提供了异步指定依赖的方案. 这对于客户端的路由很有用, 你想要在每个页面都有路由, 但你又不像在真的用到功能之前就下载某个功能的代码.
 
 声明你想要异步加载的那个"分界点". 比如:
