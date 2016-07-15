@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: 移动端事件冲突处理（一）
+title: 移动端事件冲突处理小计
 categories: font-end
 tags: mobile events javascript
 ---
