@@ -12,11 +12,11 @@ tags: react
 
 >本文的内容主要来自于FackBook ShihChi Huang的演讲“React tips while building large scale application”
 
-##Container Component
-###What
+## Container Component
+### What
 如下图所示，Container Component就是包裹在普通组件外层的“包裹组件”，主要用来处理数据、loading/error占位图等。而包裹在其中的普通组件只单一负责`render`。
 ![](http://km.oa.com/files/photos/pictures/201607/1469516257_38_w328_h287.png)
-###How
+### How
 ```
 class FooContainer extends Component {
     constructor(props) {
@@ -30,7 +30,7 @@ class FooContainer extends Component {
     }
 }
 ```
-###Why
+### Why
 通常，我们把包裹组件和普通组件区分为：Container Component和UI Component。
 **Container Component**专注于：
 1、管理data 和 state；
@@ -40,7 +40,7 @@ class FooContainer extends Component {
 1、UI展示；
 2、可复用的模块。
 
-###Example
+### Example
 通常我们可能会这样设计一个ToDoAPP
 ```
 class TodoApp extends Component {
@@ -109,7 +109,7 @@ class Todo extends Component {
 ```
 有木有清晰很多？
 
-##无状态组件（Stateless Component）
+## 无状态组件（Stateless Component）
 或许你曾今这样写过一个模块：
 ```
 class Todo extends Component {
@@ -137,7 +137,7 @@ class Todo extends Component {
 ```
 即“无状态组件”，这种组件没有状态，没有生命周期，只是简单地接受props渲染成DOM结构。由于React在渲染时省掉了“组件类”实例化的过程，因此**开销非常低**。
 
-##装饰者模式（Decorator）
+## 装饰者模式（Decorator）
 在长列表中，如果要给每一个项绑定左滑删除的按钮，我们应该怎样设计呢？考虑到“删除组件”的可复用性，我们可以尝试使用“装饰者”。
 ![](http://km.oa.com/files/photos/pictures/201607/1469516412_40_w551_h259.png)
 ```
@@ -183,7 +183,7 @@ class TodoItem extends Component {
     }
 }
 ```
-##装饰者—之高阶函数实战
+## 装饰者—之高阶函数实战
 在兴趣部落独立APP私密部落升级公开部落的信息表单中，需要在多个页面复用“上传图片”的功能组件，但由于采用了ES6的写法，无法使用mixin，让人苦恼不已。使用高阶函数，可以帮助我们解决这个问题。
 ![](http://km.oa.com/files/photos/pictures/201607/1469516493_11_w433_h312.png)
 ```
@@ -253,7 +253,7 @@ export default ImageUpload(Avatar);
 ```
 高阶函数加无状态组件，大大增强了整个代码的可测试性和可维护性。我们也因此可写出组合性更好的代码。
 更多细节，可拓展阅读：[React and ES6 - Part 4, React Mixins when using ES6 and React](http://egorsmirnov.me/2015/09/30/react-and-es6-part4.html)
-##map / filter / reduce
+## map / filter / reduce
 这一块内容其实在我的另一篇文章中已经有所阐述：[从 Array 理解函数式编程](http://km.oa.com/group/19674/articles/show/259044)。如果你能够在数据处理时尝试考虑使用这些函数会让你的逻辑更加清晰。这里不做赘述，一个例子即可帮你get到point。
 ```
 var todos = [];
@@ -271,5 +271,5 @@ return this.props.todos
     });
 ```
 
-##结语
+## 结语
 读到这里，或许你会回想到：哦！当初我的组件原来可以这么设计！或许也只是我个人yy。所谓“我们不创造代码，我们只是代码的搬用工”。真心希望我的总结能帮助到大家。
